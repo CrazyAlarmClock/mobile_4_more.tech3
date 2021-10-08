@@ -1,3 +1,4 @@
+import 'package:dragon_trade/models/user.dart';
 import 'package:dragon_trade/utils/fade_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
@@ -31,7 +32,7 @@ class _HomeState extends State<Home> {
           child: Container(
               padding: EdgeInsets.symmetric(vertical: 50),
               alignment: Alignment.topCenter,
-              child:   FadeWidget(widget: Text('awdawd'),),),
+              child:   FadeWidget(widget: Text(UserData.name),),),
         ),
       ),
     );
