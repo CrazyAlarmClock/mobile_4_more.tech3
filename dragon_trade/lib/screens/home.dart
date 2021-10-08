@@ -24,11 +24,7 @@ class _HomeState extends State<Home> {
             topLeft: Radius.circular(24.0), topRight: Radius.circular(24.0)),
         minHeight: 300,
         maxHeight: 600,
-        panel: SingleChildScrollView(
-          child: Column(
-            children: [Text('kek')],
-          ),
-        ),
+        panel: Center(child: Text('kek')),
         body: Center(
           child: Container(
               padding: EdgeInsets.symmetric(vertical: 50),
