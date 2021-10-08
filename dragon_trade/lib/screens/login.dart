@@ -1,8 +1,9 @@
 import 'package:dragon_trade/models/user.dart';
+import 'package:dragon_trade/screens/chapters/chapter.dart';
+import 'package:dragon_trade/screens/chapters/chapter_0.dart';
 import 'package:dragon_trade/theme/theme_settings.dart';
 import 'package:dragon_trade/widget/button.dart';
 import 'package:flutter/material.dart';
-import 'home.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class Login extends StatefulWidget {
@@ -72,7 +73,7 @@ class _LoginState extends State<Login> {
                   ? () {
                       UserData.name = controller.text;
                       Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) => Home()));
+                          MaterialPageRoute(builder: (context) => Chapter(chapter: chapterZero,)));
                     }
                   : null,
             )
