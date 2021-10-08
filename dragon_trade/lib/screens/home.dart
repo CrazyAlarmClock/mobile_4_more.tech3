@@ -41,7 +41,7 @@ class _HomeState extends State<Home> {
             Row(
               children: [
                 Text(
-                  UserData.name ?? 'null',
+                  UserData.gold.toString() ?? 'null',
                   style: AppColors.text,
                 ),
                 SizedBox(
