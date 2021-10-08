@@ -76,6 +76,7 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+<<<<<<< HEAD
   flutter_svg:
     dependency: "direct main"
     description:
@@ -83,6 +84,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.22.0"
+=======
+  flutter_fadein:
+    dependency: "direct main"
+    description:
+      name: flutter_fadein
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
+>>>>>>> 24e662e3c92a0dc537cbd88c4f514bbf2b23831c
   flutter_test:
     dependency: "direct dev"
     description: flutter
