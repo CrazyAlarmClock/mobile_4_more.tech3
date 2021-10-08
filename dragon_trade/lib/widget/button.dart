@@ -35,7 +35,7 @@ class BottomButton extends StatelessWidget {
       child: TextButton(
         style: flatButtonStyle,
         onPressed: handler,
-        child: Text(name,style: TextStyle(fontWeight: FontWeight.w900,fontSize: 16,),),
+        child: Text(name,style: TextStyle(fontWeight: FontWeight.w900,fontSize: 16,fontStyle: FontStyle.normal),),
       ),
     );
   }
