@@ -5,6 +5,7 @@ import 'package:dragon_trade/theme/theme_settings.dart';
 import 'package:dragon_trade/widget/button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -70,8 +71,12 @@ class _LoginState extends State<Login> {
               name: 'Начать',
               width: 148,
               handler: controller.text.isNotEmpty
-                  ? () {
-                      UserData.name = controller.text;
+                  ? () async {
+                SharedPreferences prefs = await SharedPreferences.getInstance();
+
+                prefs.setString('name', controller.text);
+                UserData.name = controller.text;
+
                       Navigator.pushReplacement(context,
                           MaterialPageRoute(builder: (context) => Chapter(chapter: chapterZero,)));
                     }
