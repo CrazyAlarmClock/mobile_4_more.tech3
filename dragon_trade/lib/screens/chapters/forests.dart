@@ -140,7 +140,9 @@ int value=0;
         )
     
       ],
-   ),
+   ),SizedBox(
+            height: 36,
+          ),
           Gossip(
               name:
                   'Ходят слухи что в этом году эльфийские леса постигла засуха.'),
@@ -152,13 +154,16 @@ int value=0;
                   'Договоренность эльфов с дриадами о помощи меллорнам под вопросом. Сделка на грани срыва.'),
         ],
       ),
+      SizedBox(
+            height: 16,
+          ),
                   BottomButton(
           name: 'Вложить монеты',
           handler: (){
             
             UserData.elves=value;
             UserData.gold=(UserData.gold??1000)- value;
-            UserData.dom1 = true;
+            UserData.dom2 = true;
             Navigator.of(context).pop();
           },
         )

@@ -163,7 +163,7 @@ int value=0;
             
             UserData.leprecons=value;
             UserData.gold=(UserData.gold??1000)- value;
-              UserData.dom5 = true;
+              UserData.dom6 = true;
             Navigator.of(context).pop();
           },
         ) ]),

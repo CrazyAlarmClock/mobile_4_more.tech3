@@ -66,21 +66,21 @@ class _HomeState extends State<Home> {
                           builder: (context) => scr.Chapter(
                             chapter: chapterOne,
                           ))).then((value) => setState(() {
-              
+                            
             })),
                   title: 'Дом казначея',
                   txtColor: Color(0xff54375E),
                   colorBck: Color(0xffF9F1FF),
                   image: 'assets/illustration button.png',
                   done: UserData.dom1,
-                  lostMoney: UserData.gold,
+                  lostMoney: UserData.gold??0,
                   loked: UserData.lockAll,
                 ),
                 SizedBox(
                   height: 8,
                 ),
                 Chapter(
-                    go: () => Navigator.push(
+                    go:UserData.lockAll?null: () => Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => ChapterForest(
@@ -101,7 +101,7 @@ class _HomeState extends State<Home> {
                   height: 8,
                 ),
                 Chapter(
-                  go: () => Navigator.push(
+                  go:UserData.lockAll?null: () => Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) => ChapterWitches(
@@ -122,7 +122,7 @@ class _HomeState extends State<Home> {
                   height: 8,
                 ),
                 Chapter(
-                  go: () => Navigator.push(
+                  go:UserData.lockAll?null: () => Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) => ChapterCave(
@@ -143,7 +143,7 @@ class _HomeState extends State<Home> {
                   height: 8,
                 ),
                 Chapter(
-                  go: () => Navigator.push(
+                  go:UserData.lockAll?null: () => Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) => ChapterPeople(
@@ -163,7 +163,7 @@ class _HomeState extends State<Home> {
                   height: 8,
                 ),
                 Chapter(
-                  go: () => Navigator.push(
+                  go:UserData.lockAll?null: () => Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) => ChapterLeprecons(

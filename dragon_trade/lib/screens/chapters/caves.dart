@@ -164,7 +164,7 @@ int value=0;
             
             UserData.gnomes=value;
             UserData.gold=(UserData.gold??1000)- value;
-              UserData.dom3 = true;
+              UserData.dom4 = true;
             Navigator.of(context).pop();
           },
         ) ]),

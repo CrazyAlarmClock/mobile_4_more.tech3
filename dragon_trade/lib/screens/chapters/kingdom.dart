@@ -161,7 +161,7 @@ int value=0;
             
             UserData.people=value;
             UserData.gold=(UserData.gold??1000)- value;
-              UserData.dom4 = true;
+              UserData.dom5 = true;
             Navigator.of(context).pop();
           },
         )
