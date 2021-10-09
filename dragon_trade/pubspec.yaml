@@ -46,8 +46,8 @@ dev_dependencies:
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 flutter_native_splash:
-  color: "#ffffffff"
-  background_image: "assets/iPhoneX.png"
+  color: "FFFFFF"
+  image: "assets/iPhoneX.png"
 
 # The following section is specific to Flutter.
 flutter:
