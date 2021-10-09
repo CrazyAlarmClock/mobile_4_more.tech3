@@ -4,12 +4,13 @@ import 'package:dragon_trade/screens/test.dart';
 import 'package:dragon_trade/theme/theme_settings.dart';
 import 'package:dragon_trade/utils/fade_widget.dart';
 import 'package:dragon_trade/widget/button.dart';
+import 'package:dragon_trade/widget/chapter_card.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:dragon_trade/models/keys.dart';
 
-List<ChapterModel> chapterOne = [
+List<ChapterModel> chapterOne0 = [
   ChapterModel(
       hint: Text(
         'В этой главе рассказывается о том как важно определиться с целями инвестирования.\n\nС начала 2019 года Центральный Банк Российской Федерации постепенно снижает ключевую ставку. Из-за этого проценты по депозитам упали почти в 2 раза — вместо 6−7 %, как в прошлом году, сейчас банки предлагают 3−4 %. А инфляция растёт — за 9 месяцев 2020 года она составила 3,67 %, а за последние 5 лет — 22,13 %. Это значит, что если бы вы 5 лет назад отложили 1 млн ₽, то сегодня эта сумма была бы эквивалентна 800 000 ₽, так как цены выросли. То есть вы просто так, на пустом месте, потеряли бы 200 000 ₽.',
@@ -23,6 +24,7 @@ List<ChapterModel> chapterOne = [
       buttons: [
         BottomButton(
           name: 'Далее',
+          handler: ()=>Navigator.pushReplacement(Application.navKey.currentContext, MaterialPageRoute(builder: (c)=>scr.Chapter(chapter: chapterOne1,))),
         )
       ],
       isBackButton: true,
@@ -107,11 +109,17 @@ List<ChapterModel> chapterOne = [
           )
         ],
       )),
+  
+];
+
+List<ChapterModel> chapterOne1 = [
+
   ChapterModel(
       name: 'Дом казначея',
       buttons: [
         BottomButton(
           name: 'Далее',
+            handler: ()=>Navigator.pushReplacement(Application.navKey.currentContext, MaterialPageRoute(builder: (c)=>scr.Chapter(chapter: chapterOne2,))),
         )
       ],
       hint:  RichText(
@@ -137,7 +145,7 @@ List<ChapterModel> chapterOne = [
       isBackButton: true,
       text: Column(
         children: [
-          SvgPicture.asset('assets/svg/violet_dragon.svg'),
+          AnimationRive(animation: '6',),
           SizedBox(
             height: 48,
           ),
@@ -151,17 +159,23 @@ List<ChapterModel> chapterOne = [
               )),
         ],
       )),
+
+];
+
+List<ChapterModel> chapterOne2 = [
+ 
   ChapterModel(
       name: 'Дом казначея',
       buttons: [
         BottomButton(
           name: 'Далее',
+          
         )
       ],
       isBackButton: true,
       text: Column(
         children: [
-          SvgPicture.asset('assets/svg/violet_dragon.svg'),
+        AnimationRive(animation: '7',),
           SizedBox(
             height: 48,
           ),

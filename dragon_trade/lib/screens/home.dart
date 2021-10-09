@@ -65,7 +65,7 @@ class _HomeState extends State<Home> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => scr.Chapter(
-                            chapter: chapterOne,
+                            chapter: chapterOne0,
                           ))).then((value) => setState(() {
                             
             })),
