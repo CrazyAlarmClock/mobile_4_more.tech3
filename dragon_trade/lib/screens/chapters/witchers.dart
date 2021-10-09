@@ -10,10 +10,167 @@ import 'package:dragon_trade/widget/slider.dart' as sl;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:dragon_trade/screens/home.dart';
 
+class ChapterWitches extends StatefulWidget {
+  final List<ChapterModel> chapter;
+  const ChapterWitches({this.chapter});
+
+  @override
+  _ChapterWitchesState createState() => _ChapterWitchesState();
+}
+
+class _ChapterWitchesState extends State<ChapterWitches> {
+int value=0;
+  List<Widget> getButtons() {
+    List<Widget> buttons = [];
+    widget.chapter[UserData.page].buttons.forEach((e) {
+      BottomButton button = BottomButton(
+        name: e.name,
+        handler: () {
+          if (UserData.page + 1 == widget.chapter.length) {
+            UserData.page = 0;
+            widget.chapter[UserData.page].isBackButton
+                ? Navigator.pop(context)
+                : Navigator.pushReplacement(
+                    context, MaterialPageRoute(builder: (context) => Home()));
+          } else {
+            UserData.page += 1;
+            setState(() {
+              
+            });
+          }
+        },
+      );
+      buttons.add(button);
+    });
+    return buttons;
+  }
+
+    @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    value=UserData.witchers;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+            leading: widget.chapter[UserData.page].isBackButton
+                ? IconButton(
+                    onPressed: () { Navigator.pop(context);
+                    UserData.page=0;
+                    },
+                    icon: SvgPicture.asset('assets/svg/ic_back.svg'))
+                : null,
+            actions: [
+              if (widget.chapter[UserData.page].hint != null)
+                IconButton(
+                    onPressed: () {
+                      scr.showHint(widget.chapter[UserData.page].hint,);
+                    },
+                    icon: SvgPicture.asset('assets/svg/ic_question.svg'))
+            ],
+            elevation: 0,
+            shadowColor: Colors.white,
+            backgroundColor: Colors.white,
+            title: Text(widget.chapter[UserData.page].name,
+                style: AppColors.bold)),
+        backgroundColor: Colors.white,
+        body:  SingleChildScrollView(
+          child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                Column(
+        children: [
+          SvgPicture.asset('assets/svg/violet_dragon.svg'),
+          SizedBox(
+            height: 48,
+          ),
+          FadeWidget(
+              widget: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text(
+            '  А вот и башни магов на горизонте…Магистры всегда в курсе всех новостей и водят дружбу со всеми расами средиземья.\n\n  В их фондах собраны только лучшие ценные бумаги, стабильные и надежные как сама магия.\n\n  Будем ли вкладывать них, Леонид?',
+            style: AppColors.text,
+          ),
+              )),
+          SizedBox(
+            height: 16,
+          ),
+    Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Text(
+              '$value из ${UserData.gold??1000}',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.w900,
+                color: Color(0xff316FCC),
+              ),
+            ),
+        ),
+        Container(
+          width: double.infinity,
+          child: SliderTheme(
+            
+      data: SliderThemeData(
+          disabledActiveTrackColor: Color(0xffB0CDF9),
+          disabledInactiveTrackColor: Color(0xffB0CDF9),
+          activeTrackColor: Color(0xffB0CDF9),
+      inactiveTrackColor:Color(0xffB0CDF9),
+      thumbColor: Color(0xff3A83F1),
+          trackHeight: 4,
+          thumbShape: RoundSliderThumbShape(enabledThumbRadius: 18.0),
+         
+      ),
+      child: Slider(
+          value: value+0.0,
+          onChanged: (dynamic v) {
+              setState(() {
+                value = v.toInt();
+               
+              });
+            },
+          min:0+0.0,
+          max: (UserData.gold??1000)+0.0,
+      )),
+        )
+    
+      ],
+   ),
+          Gossip(
+              name:
+                  'Маги знают цену золоту, держат нос по ветру и всегда вкурсе где и почем купить редкие ингридиенты.'),
+          SizedBox(
+            height: 8,
+          ),
+          Gossip(
+              name:
+                  'Архимаг Елитодий каждый код отправляет своих учеников в разные  королевства за новостями и редкостями.'),
+        ],
+                ),
+                  BottomButton(
+          name: 'Вложить монеты',
+          handler: (){
+            
+            UserData.witchers=value;
+            UserData.gold=(UserData.gold??1000)- value;
+            Navigator.of(context).pop();
+          },
+        )
+                ]),
+        ),
+        );
+  }
+
+
+}
 List<ChapterModel> chapterWitch = [
-
-
   ChapterModel(
       hint: RichText(
         text: TextSpan(
@@ -84,9 +241,7 @@ List<ChapterModel> chapterWitch = [
       ),
       name: 'Башни магов',
       buttons: [
-        BottomButton(
-          name: 'Вложить монеты',
-        )
+        
       ],
       isBackButton: true,
       text: Column(
@@ -96,10 +251,13 @@ List<ChapterModel> chapterWitch = [
             height: 48,
           ),
           FadeWidget(
-              widget: Text(
+              widget: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text(
             '  А вот и башни магов на горизонте…Магистры всегда в курсе всех новостей и водят дружбу со всеми расами средиземья.\n\n  В их фондах собраны только лучшие ценные бумаги, стабильные и надежные как сама магия.\n\n  Будем ли вкладывать них, Леонид?',
             style: AppColors.text,
-          )),
+          ),
+              )),
           SizedBox(
             height: 16,
           ),

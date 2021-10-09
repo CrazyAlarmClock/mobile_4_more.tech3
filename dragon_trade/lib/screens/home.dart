@@ -19,6 +19,7 @@ class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
 }
+
 class _HomeState extends State<Home> {
 
   @override
@@ -63,33 +64,33 @@ class _HomeState extends State<Home> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => scr.Chapter(
-                                chapter: chapterOne,
-                              ))),
+                            chapter: chapterOne,
+                          ))),
                   title: 'Дом казначея',
                   txtColor: Color(0xff54375E),
                   colorBck: Color(0xffF9F1FF),
                   image: 'assets/illustration button.png',
                   done: UserData.dom1,
-                  lostMoney: 0,
+                  lostMoney: UserData.gold,
                   loked: UserData.lockAll,
                 ),
                 SizedBox(
                   height: 8,
                 ),
                 Chapter(
-                  go: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => scr.Chapter(
-                                chapter: chapterForest,
-                              ))),
-                  title: 'Эльфийские леса',
-                  txtColor: Color(0xff207D83),
-                  colorBck: Color(0xffE1F8FF),
-                  image: 'assets/illustration button-1.png',
-                  done: UserData.dom2,
-                  lostMoney: 0,
-                  loked: UserData.lockAll
+                    go: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => scr.Chapter(
+                              chapter: chapterForest,
+                            ))),
+                    title: 'Эльфийские леса',
+                    txtColor: Color(0xff207D83),
+                    colorBck: Color(0xffE1F8FF),
+                    image: 'assets/illustration button-1.png',
+                    done: UserData.dom2,
+                    lostMoney: UserData.elves,
+                    loked: UserData.lockAll
 
                 ),
                 SizedBox(
@@ -100,14 +101,14 @@ class _HomeState extends State<Home> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => scr.Chapter(
-                                chapter: chapterWitch,
-                              ))),
+                            chapter: chapterWitch,
+                          ))),
                   title: 'Башни магов',
                   txtColor: Color(0xffA35D38),
                   colorBck: Color(0xffFFF0F0),
                   image: 'assets/illustration button-2.png',
                   done: UserData.dom3,
-                  lostMoney: 0,
+                  lostMoney: UserData.witchers,
                   loked: UserData.lockAll,
 
                 ),
@@ -119,14 +120,14 @@ class _HomeState extends State<Home> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => scr.Chapter(
-                                chapter: chapterCaves,
-                              ))),
+                            chapter: chapterCaves,
+                          ))),
                   title: 'Гномьи пещеры',
                   txtColor: Color(0xff292844),
                   colorBck: Color(0xffE5E5E5),
                   image: 'assets/illustration button-3.png',
                   done: UserData.dom4,
-                  lostMoney: 0,
+                  lostMoney: UserData.gnomes,
                   loked: UserData.lockAll,
 
                 ),
@@ -138,14 +139,14 @@ class _HomeState extends State<Home> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => scr.Chapter(
-                                chapter: chapterKingdom,
-                              ))),
+                            chapter: chapterKingdom,
+                          ))),
                   title: 'Людское королевство',
                   txtColor: Color(0xff537F5E),
                   colorBck: Color(0xffF2F6D7),
                   image: 'assets/illustration button-4.png',
                   done: UserData.dom5,
-                  lostMoney: 0,
+                  lostMoney: UserData.people,
                   loked: UserData.lockAll,
                 ),
                 SizedBox(
@@ -156,14 +157,14 @@ class _HomeState extends State<Home> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => scr.Chapter(
-                                chapter: chapterTwo,
-                              ))),
+                            chapter: chapterTwo,
+                          ))),
                   title: 'Земли лепреконов',
                   txtColor: Color(0xffAC121B),
                   colorBck: Color(0xffFFEFEF),
                   image: 'assets/illustration button-5.png',
                   done: UserData.dom6,
-                  lostMoney: 0,
+                  lostMoney: UserData.leprecons,
                   loked: UserData.lockAll,
 
                 ),
@@ -176,3 +177,4 @@ class _HomeState extends State<Home> {
     );
   }
 }
+
