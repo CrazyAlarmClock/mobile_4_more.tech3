@@ -48,6 +48,7 @@ List<ChapterModel> chapterZero = [
       text: Column(
         children: [
           AnimationRive(animation: '3',),
+
           SizedBox(
             height: 48,
           ),
