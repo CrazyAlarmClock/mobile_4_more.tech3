@@ -9,12 +9,15 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rive/rive.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class Test extends StatefulWidget {
+class AnimationRive extends StatefulWidget {
+  final String animation;
+
+  const AnimationRive({Key key, this.animation}) : super(key: key);
   @override
-  _TestState createState() => _TestState();
+  _AnimationRiveState createState() => _AnimationRiveState();
 }
 
-class _TestState extends State<Test> {
+class _AnimationRiveState extends State<AnimationRive> {
   Artboard _riveArtboard;
   RiveAnimationController _controller;
 
@@ -22,7 +25,7 @@ class _TestState extends State<Test> {
   void initState() {
     super.initState();
 
-    rootBundle.load('assets/rive/ill-2.riv').then(
+    rootBundle.load('assets/rive/ill-${widget.animation}.riv').then(
       (data) async {
         final file = RiveFile();
         if (file.import(data)) {
@@ -36,11 +39,7 @@ class _TestState extends State<Test> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // resizeToAvoidBottomInset:false,
-      body: Center(
-        child: Container(child: Rive(artboard: _riveArtboard)),
-      ), //
-    );
+    return Container(
+        width: 500, height: 210, child: Rive(artboard: _riveArtboard));
   }
 }
