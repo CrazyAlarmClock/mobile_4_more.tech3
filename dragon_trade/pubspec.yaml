@@ -31,6 +31,7 @@ dependencies:
   shared_preferences: ^2.0.0
   sliding_up_panel: ^1.0.2
   flutter_svg: ^0.22.0
+  webview_flutter: any
   flutter_fadein: ^2.0.0
   screenshot: ^1.2.3
   path_provider: ^2.0.1

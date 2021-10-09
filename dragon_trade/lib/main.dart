@@ -2,7 +2,7 @@ import 'package:dragon_trade/models/user.dart';
 import 'package:dragon_trade/screens/home.dart';
 import 'package:dragon_trade/screens/login.dart';
 import 'package:dragon_trade/utils/fade_widget.dart';
-
+import 'package:dragon_trade/models/keys.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -34,6 +34,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return FadeWidget(
       widget: MaterialApp(
+        
+        navigatorKey: Application.navKey,
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
