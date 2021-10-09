@@ -39,11 +39,7 @@ class ResultScreen extends StatelessWidget {
               //  UserData.page = 0;
               },
               icon: SvgPicture.asset('assets/svg/ic_back.svg')),
-          actions: [
-            IconButton(
-                onPressed: () {},
-                icon: SvgPicture.asset('assets/svg/ic_question.svg'))
-          ],
+
           elevation: 0,
           shadowColor: Colors.white,
           backgroundColor: Colors.white,
@@ -71,60 +67,41 @@ class ResultScreen extends StatelessWidget {
                     children: [
                       Container(
                         padding: EdgeInsets.all(16),
-                        alignment: Alignment.topLeft,
+                        alignment: Alignment.topRight,
                         child: SvgPicture.asset('assets/svg/logo.svg'),
                       ),
                       Positioned(
-                        left: 150,
                         child: Container(
-                          alignment: Alignment.centerRight,
+                          alignment: Alignment.center,
                           child: SvgPicture.asset(
                             'assets/svg/ch_1.svg',
                             width: 350,
                           ),
                         ),
                       ),
-                      Positioned(
-                        left: 0,
-                        top: 170,
-                        child: Container(
-                          padding: EdgeInsets.all(16),
-                          alignment: Alignment.centerLeft,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Заработок дракона',
-                                style: TextStyle(
-                                    color: Color(0xff333333),
-                                    fontSize: 21,
-                                    fontWeight: FontWeight.w900),
-                              ),
-                              RichText(
-                                  text: TextSpan(
-                                style: TextStyle(fontSize: 20),
-                                children: <TextSpan>[
-                                  TextSpan(
-                                    text: UserData.gold.toString() ?? '1500',
-                                    style: TextStyle(
-                                        color: Color(0xff333333),
-                                        fontSize: 49,
-                                        fontWeight: FontWeight.w900),
-                                  ),
-                                  TextSpan(
-                                    text: ' +150%',
-                                    style: TextStyle(
-                                        color: Color(0xff45C051),
-                                        fontSize: 36,
-                                        fontWeight: FontWeight.w900),
-                                  ),
-                                ],
-                              ))
-                            ],
-                          ),
-                        ),
-                      ),
+                      Container(
+                        alignment: Alignment.bottomCenter,
+                        child: RichText(
+                            text: TextSpan(
+                              style: TextStyle(fontSize: 20),
+                              children: <TextSpan>[
+                                TextSpan(
+                                  text: UserData.gold.toString() ?? '1500',
+                                  style: TextStyle(
+                                      color: Color(0xff333333),
+                                      fontSize: 49,
+                                      fontWeight: FontWeight.w900),
+                                ),
+                                TextSpan(
+                                  text: ' +150%',
+                                  style: TextStyle(
+                                      color: Color(0xff45C051),
+                                      fontSize: 36,
+                                      fontWeight: FontWeight.w900),
+                                ),
+                              ],
+                            )),
+                      )
                     ],
                   ),
                 ),

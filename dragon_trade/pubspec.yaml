@@ -37,6 +37,7 @@ dependencies:
   screenshot: ^1.2.3
   path_provider: ^2.0.1
   share: ^2.0.4
+  rive: 0.6.3
 
 
 dev_dependencies:
@@ -62,6 +63,7 @@ flutter:
   assets:
      - assets/svg/
      - assets/
+     - assets/rive/
 
   #   - images/a_dot_ham.jpeg
 

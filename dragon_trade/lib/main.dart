@@ -1,6 +1,7 @@
 import 'package:dragon_trade/models/user.dart';
 import 'package:dragon_trade/screens/home.dart';
 import 'package:dragon_trade/screens/login.dart';
+import 'package:dragon_trade/screens/result_screen.dart';
 import 'package:dragon_trade/utils/fade_widget.dart';
 import 'package:dragon_trade/models/keys.dart';
 import 'package:flutter/material.dart';
@@ -39,7 +40,7 @@ class _MyAppState extends State<MyApp> {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: UserData.name == null ? Login() : Home(),
+        home: UserData.name == null ? Login() : ResultScreen(),
       ),
     );
   }
