@@ -19,11 +19,11 @@ class SliderWidget extends StatefulWidget {
 
 class _SliderWidgetState extends State<SliderWidget> {
   int value;
+  int max;
 @override
-  void deactivate() {
-    // TODO: implement deactivate
-    super.deactivate();
-    UserData.gold=UserData.gold??1000-value;
+void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
   }
   @override
   void activate() {
@@ -38,16 +38,18 @@ class _SliderWidgetState extends State<SliderWidget> {
     // TODO: implement initState
     super.initState();
     value=widget.value;
+    max=UserData.gold??1000;
   }
   @override
   Widget build(BuildContext context) {
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
           padding: const EdgeInsets.all(16.0),
           child: Text(
-              '$value из ${UserData.gold??1000}',
+              '$value из $max',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.w900,
@@ -65,15 +67,16 @@ class _SliderWidgetState extends State<SliderWidget> {
           activeTrackColor: Color(0xffB0CDF9),
       inactiveTrackColor:Color(0xffB0CDF9),
       thumbColor: Color(0xff3A83F1),
-          trackHeight: 4, //<------Change this number here to change the height----
+          trackHeight: 4,
           thumbShape: RoundSliderThumbShape(enabledThumbRadius: 18.0),
-          //trackShape: RoundSliderTrackShape(),
+         
       ),
       child: Slider(
           value: value+0.0,
           onChanged: (dynamic v) {
               setState(() {
                 value = v.toInt();
+                UserData.gold=max-value;
               });
             },
           min: widget.min+0.0,
