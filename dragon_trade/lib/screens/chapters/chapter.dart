@@ -26,7 +26,8 @@ class _ChapterState extends State<Chapter> {
     widget.chapter[UserData.page].buttons.forEach((e) {
       BottomButton button = BottomButton(
         name: e.name,
-        handler: () {
+        handler:e.handler!=null?e.handler: () {
+          
           if (UserData.page + 1 == widget.chapter.length) {
             UserData.page = 0;
            if( widget.chapter[UserData.page].isBackButton)

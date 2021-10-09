@@ -1,8 +1,10 @@
 import 'package:dragon_trade/models/chapter.dart';
+import 'package:dragon_trade/screens/result_screen.dart';
 import 'package:dragon_trade/theme/theme_settings.dart';
 import 'package:dragon_trade/utils/fade_widget.dart';
 import 'package:dragon_trade/widget/button.dart';
 import 'package:flutter/material.dart';
+import 'package:dragon_trade/models/keys.dart';
 import 'package:flutter_svg/svg.dart';
 
 List<ChapterModel> chapterHome = [
@@ -12,8 +14,11 @@ List<ChapterModel> chapterHome = [
       buttons: [
         BottomButton(
           name: 'Рассчитать',
-         
-        )
+         handler: (){
+           Navigator.pushReplacement(Application.navKey.currentContext, MaterialPageRoute(builder: (c)=>ResultScreen()));
+         },
+        ),
+        
       ],
       isBackButton: true,
       text: Column(

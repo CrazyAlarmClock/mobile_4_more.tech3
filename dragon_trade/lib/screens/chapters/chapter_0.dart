@@ -46,7 +46,8 @@ List<ChapterModel> chapterZero = [
       ],
       text: Column(
         children: [
-          SvgPicture.asset('assets/svg/violet_dragon.svg'),
+        
+   
           SizedBox(
             height: 48,
           ),
