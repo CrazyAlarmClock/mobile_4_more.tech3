@@ -7,6 +7,7 @@ import 'package:flutter_svg/svg.dart';
 
 List<ChapterModel> chapterHome = [
   ChapterModel(
+    
       name: 'Путь домой',
       buttons: [
         BottomButton(
@@ -14,7 +15,7 @@ List<ChapterModel> chapterHome = [
          
         )
       ],
-      isBackButton: false,
+      isBackButton: true,
       text: Column(
         children: [
           SvgPicture.asset('assets/svg/violet_dragon.svg'),
