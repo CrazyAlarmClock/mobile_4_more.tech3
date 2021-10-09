@@ -65,7 +65,9 @@ class _HomeState extends State<Home> {
                       MaterialPageRoute(
                           builder: (context) => scr.Chapter(
                             chapter: chapterOne,
-                          ))),
+                          ))).then((value) => setState(() {
+              
+            })),
                   title: 'Дом казначея',
                   txtColor: Color(0xff54375E),
                   colorBck: Color(0xffF9F1FF),
@@ -81,9 +83,11 @@ class _HomeState extends State<Home> {
                     go: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => scr.Chapter(
+                            builder: (context) => ChapterForest(
                               chapter: chapterForest,
-                            ))),
+                            ))).then((value) => setState(() {
+              
+            })),
                     title: 'Эльфийские леса',
                     txtColor: Color(0xff207D83),
                     colorBck: Color(0xffE1F8FF),
@@ -100,9 +104,11 @@ class _HomeState extends State<Home> {
                   go: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => scr.Chapter(
+                          builder: (context) => ChapterWitches(
                             chapter: chapterWitch,
-                          ))),
+                          ))).then((value) => setState(() {
+              
+            })),
                   title: 'Башни магов',
                   txtColor: Color(0xffA35D38),
                   colorBck: Color(0xffFFF0F0),
@@ -119,9 +125,11 @@ class _HomeState extends State<Home> {
                   go: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => scr.Chapter(
+                          builder: (context) => ChapterCave(
                             chapter: chapterCaves,
-                          ))),
+                          ))).then((value) => setState(() {
+              
+            })),
                   title: 'Гномьи пещеры',
                   txtColor: Color(0xff292844),
                   colorBck: Color(0xffE5E5E5),
@@ -138,9 +146,11 @@ class _HomeState extends State<Home> {
                   go: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => scr.Chapter(
+                          builder: (context) => ChapterPeople(
                             chapter: chapterKingdom,
-                          ))),
+                          ))).then((value) => setState(() {
+              
+            })),
                   title: 'Людское королевство',
                   txtColor: Color(0xff537F5E),
                   colorBck: Color(0xffF2F6D7),
@@ -156,9 +166,11 @@ class _HomeState extends State<Home> {
                   go: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => scr.Chapter(
+                          builder: (context) => ChapterLeprecons(
                             chapter: chapterTwo,
-                          ))),
+                          ))).then((value) => setState(() {
+              
+            })),
                   title: 'Земли лепреконов',
                   txtColor: Color(0xffAC121B),
                   colorBck: Color(0xffFFEFEF),

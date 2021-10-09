@@ -32,10 +32,13 @@ List<ChapterModel> chapterOne = [
             height: 48,
           ),
           FadeWidget(
-              widget: Text(
+              widget: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text(
             '  Посмотрели дракон и Леонид на монеты и поняли что нужно их вложить, да вот только вложить можно по-разному. Что же делать?',
             style: AppColors.text,
-          )),
+          ),
+              )),
           SizedBox(
             height: 32,
           ),
@@ -138,10 +141,13 @@ List<ChapterModel> chapterOne = [
             height: 48,
           ),
           FadeWidget(
-              widget: Text(
+              widget: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text(
             '  Коль уж определились с целью, стало понятно и что напрямую сделки заключать затратно, а вести дела через казначея надежного, за небольшую монету, куда сподручнее.',
             style: AppColors.text,
-          )),
+          ),
+              )),
         ],
       )),
   ChapterModel(
@@ -159,10 +165,13 @@ List<ChapterModel> chapterOne = [
             height: 48,
           ),
           FadeWidget(
-              widget: Text(
+              widget: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text(
             '  Усталые и довольные, захватив с собой казначея для сделок денежных, наши герои отправились дальнюю дорогу, в места где богатства несметные и горы золотые…',
             style: AppColors.text,
-          )),
+          ),
+              )),
         ],
       )),
 ];
