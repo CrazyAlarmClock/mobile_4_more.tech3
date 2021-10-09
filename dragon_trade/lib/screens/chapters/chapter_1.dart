@@ -61,6 +61,7 @@ List<ChapterModel> chapterOne = [
               ),
             ),
             child: Container(
+              margin: EdgeInsets.symmetric(horizontal: 16),
               width: double.infinity,
               child: SvgPicture.asset(
                 'assets/svg/save_money.svg',
@@ -93,6 +94,7 @@ List<ChapterModel> chapterOne = [
               ),
             ),
             child: Container(
+               margin: EdgeInsets.symmetric(horizontal: 16),
                 width: double.infinity,
                 child: SvgPicture.asset(
                   'assets/svg/mult_money.svg',
