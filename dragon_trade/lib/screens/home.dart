@@ -1,7 +1,11 @@
 import 'package:dragon_trade/models/dragon.dart';
 import 'package:dragon_trade/models/user.dart';
+import 'package:dragon_trade/screens/chapters/caves.dart';
 import 'package:dragon_trade/screens/chapters/chapter_1.dart';
 import 'package:dragon_trade/screens/chapters/chapter_2.dart';
+import 'package:dragon_trade/screens/chapters/forests.dart';
+import 'package:dragon_trade/screens/chapters/kingdom.dart';
+import 'package:dragon_trade/screens/chapters/witchers.dart';
 import 'package:dragon_trade/screens/result_screen.dart';
 import 'package:dragon_trade/theme/theme_settings.dart';
 import 'package:dragon_trade/utils/fade_widget.dart';
@@ -94,7 +98,7 @@ class _HomeState extends State<Home> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => scr.Chapter(
-                                chapter: chapterTwo,
+                                chapter: chapterForest,
                               ))),
                   title: 'Эльфийские леса',
                   txtColor: Color(0xff207D83),
@@ -111,7 +115,8 @@ class _HomeState extends State<Home> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => scr.Chapter(
-                            chapter: chapterTwo,
+                            chapter: chapterWitch
+                            ,
                           ))),
                   title: 'Башни магов',
                   txtColor: Color(0xffA35D38),
@@ -128,7 +133,7 @@ class _HomeState extends State<Home> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => scr.Chapter(
-                            chapter: chapterTwo,
+                            chapter: chapterCaves,
                           ))),
                   title: 'Гномьи пещеры',
                   txtColor: Color(0xff292844),
@@ -145,7 +150,7 @@ class _HomeState extends State<Home> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => scr.Chapter(
-                            chapter: chapterTwo,
+                            chapter: chapterKingdom,
                           ))),
                   title: 'Людское королевство',
                   txtColor: Color(0xff537F5E),
