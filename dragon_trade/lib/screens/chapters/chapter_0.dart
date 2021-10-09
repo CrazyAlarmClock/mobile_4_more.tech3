@@ -1,17 +1,20 @@
 import 'package:dragon_trade/models/chapter.dart';
+import 'package:dragon_trade/screens/chapters/chapter.dart';
 import 'package:dragon_trade/screens/test.dart';
 import 'package:dragon_trade/theme/theme_settings.dart';
 import 'package:dragon_trade/utils/fade_widget.dart';
 import 'package:dragon_trade/widget/button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:dragon_trade/models/keys.dart';
 
-List<ChapterModel> chapterZero = [
+List<ChapterModel> chapterZero0 = [
   ChapterModel(
       name: 'Глава 0. Рождение дракона',
       buttons: [
         BottomButton(
           name: 'Далее',
+           handler: ()=>Navigator.pushReplacement(Application.navKey.currentContext, MaterialPageRoute(builder: (c)=>Chapter(chapter: chapterZero1,))),
         )
       ],
       isBackButton: false,
@@ -37,12 +40,17 @@ List<ChapterModel> chapterZero = [
           ))
         ],
       )),
+
+];
+List<ChapterModel> chapterZero1 = [
+
   ChapterModel(
       isBackButton: false,
       name: 'Глава 0. Рождение дракона',
       buttons: [
         BottomButton(
           name: 'Далее',
+         
         )
       ],
       text: Column(
