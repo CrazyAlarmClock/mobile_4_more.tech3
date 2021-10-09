@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 class Chapter extends StatefulWidget {
   final Function go;
   final bool done;
+  final bool loked;
   final String title;
   final String image;
   final Color colorBck;
@@ -20,7 +21,8 @@ class Chapter extends StatefulWidget {
       this.done,
       this.go,
       this.txtColor,
-      this.lostMoney})
+      this.lostMoney,
+      this.loked})
       : super(key: key);
   @override
   _ChapterState createState() => _ChapterState();
@@ -29,6 +31,8 @@ class Chapter extends StatefulWidget {
 class _ChapterState extends State<Chapter> {
   @override
   Widget build(BuildContext context) {
+    bool _lock = widget.title == 'Дом казначея' ? false : widget.loked;
+
     return InkWell(
       onTap: widget.go,
       child: Stack(children: [
@@ -67,27 +71,40 @@ class _ChapterState extends State<Chapter> {
               ),
               Container(
                 alignment: Alignment.centerRight,
-                child: Image.asset(widget.image, scale: 2,),
+                child: Image.asset(
+                  widget.image,
+                  scale: 2,
+                ),
               )
             ],
           ),
         ),
-       widget.done ? Container(
-          padding:EdgeInsets.all(16) ,
-          alignment: Alignment.centerRight,
-          child: Positioned(
-            child: Container(
-              width: 20,
-              height: 20,
-              decoration: BoxDecoration(
-                  color:  widget.txtColor,
-                  borderRadius: BorderRadius.all(Radius.circular(12))),
-              child: Center(
-                child: SvgPicture.asset('assets/svg/check.svg'),
-              ),
-            ),
-          ),
-        ) : Container(),
+        widget.done
+            ? Container(
+                padding: EdgeInsets.all(16),
+                alignment: Alignment.centerRight,
+                child: Positioned(
+                  child: Container(
+                    width: 20,
+                    height: 20,
+                    decoration: BoxDecoration(
+                        color: widget.txtColor,
+                        borderRadius: BorderRadius.all(Radius.circular(12))),
+                    child: Center(
+                      child: SvgPicture.asset('assets/svg/check.svg'),
+                    ),
+                  ),
+                ),
+              )
+            : !_lock
+                ? Container()
+                : Container(
+                    padding: EdgeInsets.all(16),
+                    alignment: Alignment.centerRight,
+                    child: SvgPicture.asset(
+                      'assets/svg/lock.svg',
+                      color: widget.txtColor,
+                    )),
       ]),
     );
   }
