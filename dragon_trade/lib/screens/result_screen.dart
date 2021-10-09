@@ -3,7 +3,9 @@ import 'dart:typed_data';
 
 import 'package:dragon_trade/models/dragon.dart';
 import 'package:dragon_trade/models/user.dart';
+import 'package:dragon_trade/screens/chapters/chapter.dart';
 import 'package:dragon_trade/theme/theme_settings.dart';
+import 'package:dragon_trade/widget/button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -28,78 +30,107 @@ class ResultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+          centerTitle: true,
+          leading: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              //  UserData.page = 0;
+              },
+              icon: SvgPicture.asset('assets/svg/ic_back.svg')),
+          actions: [
+            IconButton(
+                onPressed: () {},
+                icon: SvgPicture.asset('assets/svg/ic_question.svg'))
+          ],
+          elevation: 0,
+          shadowColor: Colors.white,
+          backgroundColor: Colors.white,
+          title: Text('Результат', style: AppColors.bold)),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Screenshot(
                 child: Container(
-                  padding: EdgeInsets.all(16),
-                  decoration: const BoxDecoration(
+                  height: 400,
+                  decoration: BoxDecoration(
                       gradient: LinearGradient(
                     begin: Alignment.topCenter,
-                    end: Alignment(
-                        0.5, 2.0), // 10% of the width, so there are ten blinds.
+                    end: Alignment
+                        .bottomRight, // 10% of the width, so there are ten blinds.
                     colors: <Color>[
-                      Color(0xffE9E7E2),
-                      Color(0xffEFEFEF)
+                      Colors.white,
+                      Colors.grey[200],
                     ], // red to yellow
                     // repeats the gradient over the canvas
                   )),
-                  child: Column(
+                  child: Stack(
+                    alignment: Alignment.center,
                     children: [
                       Container(
+                        padding: EdgeInsets.all(16),
                         alignment: Alignment.topLeft,
                         child: SvgPicture.asset('assets/svg/logo.svg'),
                       ),
-                      Stack(
-                        children: [
-                          Positioned(
-                            child: Container(
-                              alignment: Alignment.centerRight,
-                              child: SvgPicture.asset(
-                                  'assets/svg/violet_dragon.svg'),
-                            ),
+                      Positioned(
+                        left: 150,
+                        child: Container(
+                          alignment: Alignment.centerRight,
+                          child: SvgPicture.asset(
+                            'assets/svg/ch_1.svg',
+                            width: 350,
                           ),
-                          Positioned(
-                            left: 50,
-                            top: 100,
-                            child: Container(
-                              alignment: Alignment.centerLeft,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'Заработок дракона',
-                                    style:TextStyle(color: Color(0xff333333), fontSize: 21, fontWeight: FontWeight.w900),
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-
-                                    children: [
-                                      Text(
-                                        UserData.gold ?? '1500',
-                                        style:TextStyle(color: Color(0xff333333), fontSize: 49, fontWeight: FontWeight.w900),
-                                      ),
-                                      Text(
-                                        ' +150%',
-                                        style:TextStyle(color: Color(0xff45C051), fontSize: 36, fontWeight: FontWeight.w900),
-                                      )
-                                    ],
-                                  )
-                                ],
+                        ),
+                      ),
+                      Positioned(
+                        left: 0,
+                        top: 170,
+                        child: Container(
+                          padding: EdgeInsets.all(16),
+                          alignment: Alignment.centerLeft,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Заработок дракона',
+                                style: TextStyle(
+                                    color: Color(0xff333333),
+                                    fontSize: 21,
+                                    fontWeight: FontWeight.w900),
                               ),
-                            ),
+                              RichText(
+                                  text: TextSpan(
+                                style: TextStyle(fontSize: 20),
+                                children: <TextSpan>[
+                                  TextSpan(
+                                    text: UserData.gold ?? '1500',
+                                    style: TextStyle(
+                                        color: Color(0xff333333),
+                                        fontSize: 49,
+                                        fontWeight: FontWeight.w900),
+                                  ),
+                                  TextSpan(
+                                    text: ' +150%',
+                                    style: TextStyle(
+                                        color: Color(0xff45C051),
+                                        fontSize: 36,
+                                        fontWeight: FontWeight.w900),
+                                  ),
+                                ],
+                              ))
+                            ],
                           ),
-                        ],
-                      )
+                        ),
+                      ),
                     ],
                   ),
                 ),
                 controller: screenshotController),
-            RaisedButton(
-              onPressed: () async {
+            BottomButton(
+              handler: () async {
                 await screenshotController
                     .capture()
                     .then((Uint8List image) async {
@@ -108,7 +139,7 @@ class ResultScreen extends StatelessWidget {
                       text: '#vtbinvest #dragoninvest3 #ВТБ');
                 });
               },
-              child: Text("Share Options"),
+              name: "Share result",
             )
           ],
         ),
