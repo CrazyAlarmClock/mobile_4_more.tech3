@@ -71,15 +71,13 @@ class _ChapterState extends State<Chapter> {
             title: Text(widget.chapter[UserData.page].name,
                 style: AppColors.bold)),
         backgroundColor: Colors.white,
-        body: Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Column(
+        body:  Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 widget.chapter[UserData.page].text,
                 ...getButtons(),
               ]),
-        ));
+        );
   }
 
 

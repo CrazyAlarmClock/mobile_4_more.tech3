@@ -14,7 +14,10 @@ class _FadeWidgetState extends State<FadeWidget> {
   @override
   Widget build(BuildContext context) {
     return FadeIn(
-      child: widget.widget,
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: widget.widget,
+      ),
       // Optional paramaters
       duration: Duration(milliseconds: 1200),
       curve: Curves.easeIn,

@@ -1,10 +1,12 @@
 import 'package:dragon_trade/models/chapter.dart';
 import 'package:dragon_trade/models/keys.dart';
+import 'package:dragon_trade/models/user.dart';
 import 'package:dragon_trade/screens/chapters/chapter.dart' as scr;
 import 'package:dragon_trade/theme/theme_settings.dart';
 import 'package:dragon_trade/utils/fade_widget.dart';
 import 'package:dragon_trade/widget/button.dart';
 import 'package:dragon_trade/widget/gossip.dart';
+import 'package:dragon_trade/widget/slider.dart' as sl;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -67,8 +69,9 @@ List<ChapterModel> chapterTwo = [
             style: AppColors.text,
           )),
           SizedBox(
-            height: 32,
+            height: 16,
           ),
+           sl.SliderWidget(min: 0,max: UserData.gold??1000,value: 0,),
           Gossip(
               name:
                   'Ходят слухи что в этом году эльфийские леса постигла засуха.'),
@@ -137,8 +140,9 @@ List<ChapterModel> chapterTwo = [
             style: AppColors.text,
           )),
           SizedBox(
-            height: 32,
+            height: 16,
           ),
+        sl.SliderWidget(min: 0,max: UserData.gold??1000,value: 0,),
           Gossip(
               name:
                   'Король людей Гронт Веселый объявил о строительстве нового моста на остров дриад.'),
@@ -237,8 +241,9 @@ List<ChapterModel> chapterTwo = [
             style: AppColors.text,
           )),
           SizedBox(
-            height: 32,
+            height: 16,
           ),
+          sl.SliderWidget(min: 0,max: UserData.gold??1000,value: 0,),
           Gossip(
               name:
                   'Маги знают цену золоту, держат нос по ветру и всегда вкурсе где и почем купить редкие ингридиенты.'),
@@ -307,8 +312,9 @@ List<ChapterModel> chapterTwo = [
             style: AppColors.text,
           )),
           SizedBox(
-            height: 32,
+            height: 16,
           ),
+          sl.SliderWidget(min: 0,max: UserData.gold??1000,value: 0,),
           Gossip(
               name:
                   'Последний проезжавший караванщик рассказывал будто гномам своей руды не хватает и скупают они всю медь в округе.'),
@@ -379,8 +385,9 @@ List<ChapterModel> chapterTwo = [
             style: AppColors.text,
           )),
           SizedBox(
-            height: 32,
+            height: 16,
           ),
+          sl.SliderWidget(min: 0,max: UserData.gold??1000,value: 0,),
           Gossip(
               name:
                   'Гномы делают все неторопливо и основательно и подход к казне у них схожий.'),

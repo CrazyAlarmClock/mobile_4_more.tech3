@@ -13,11 +13,12 @@ class Gossip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+   
         width: double.infinity,
         padding: EdgeInsets.all(
           12,
         ),
-        margin: EdgeInsets.symmetric(vertical: 4),
+        margin: EdgeInsets.symmetric(horizontal: 16),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12), color: Color(0xffEBF3FE)),
         child: Row(
