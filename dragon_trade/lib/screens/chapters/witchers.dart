@@ -87,7 +87,7 @@ int value=0;
                 children: [
                 Column(
         children: [
-         AnimationRive(animation: '10"',),
+         AnimationRive(animation: '10',),
           SizedBox(
             height: 48,
           ),

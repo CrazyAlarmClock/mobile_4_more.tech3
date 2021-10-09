@@ -88,7 +88,7 @@ int value=0;
                 children: [
              Column(
         children: [
-          SvgPicture.asset('assets/svg/violet_dragon.svg'),
+          AnimationRive(animation: '11',),
           SizedBox(
             height: 48,
           ),
