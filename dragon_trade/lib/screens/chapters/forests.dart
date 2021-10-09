@@ -158,6 +158,7 @@ int value=0;
             
             UserData.elves=value;
             UserData.gold=(UserData.gold??1000)- value;
+            UserData.dom1 = true;
             Navigator.of(context).pop();
           },
         )

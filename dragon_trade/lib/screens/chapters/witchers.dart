@@ -160,6 +160,7 @@ int value=0;
             
             UserData.witchers=value;
             UserData.gold=(UserData.gold??1000)- value;
+              UserData.dom2 = true;
             Navigator.of(context).pop();
           },
         )

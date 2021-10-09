@@ -29,9 +29,12 @@ class _ChapterState extends State<Chapter> {
         handler: () {
           if (UserData.page + 1 == widget.chapter.length) {
             UserData.page = 0;
-            widget.chapter[UserData.page].isBackButton
-                ? Navigator.pop(context)
-                : Navigator.pushReplacement(
+           if( widget.chapter[UserData.page].isBackButton)
+                { Navigator.pop(context);
+                UserData.lockAll=false;
+
+                }
+                else Navigator.pushReplacement(
                     context, MaterialPageRoute(builder: (context) => Home()));
           } else {
             UserData.page += 1;
