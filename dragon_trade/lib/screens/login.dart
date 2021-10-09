@@ -17,6 +17,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset:false,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -25,14 +26,17 @@ class _LoginState extends State<Login> {
             SizedBox(
               height: 52,
             ),
-            Text(
-              'Добро пожаловать в Dragon Invest III',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  color: Color(0xff333333),
-                  fontSize: 24,
-                  fontWeight: FontWeight.w900,
-                  fontStyle: FontStyle.normal),
+            Padding(
+              padding:  EdgeInsets.symmetric(horizontal: 16),
+              child: Text(
+                'Добро пожаловать в Dragon Invest III',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: Color(0xff333333),
+                    fontSize: 24,
+                    fontWeight: FontWeight.w900,
+                    fontStyle: FontStyle.normal),
+              ),
             ),
             SizedBox(
               height: 52,
@@ -54,10 +58,8 @@ class _LoginState extends State<Login> {
               child: TextField(
                 controller: controller,
                 style: AppColors.text,
-                onChanged: (value){
-                  setState(() {
-                    
-                  });
+                onChanged: (value) {
+                  setState(() {});
                 },
                 decoration: InputDecoration(
                     focusColor: AppColors.primary,
@@ -72,13 +74,18 @@ class _LoginState extends State<Login> {
               width: 148,
               handler: controller.text.isNotEmpty
                   ? () async {
-                SharedPreferences prefs = await SharedPreferences.getInstance();
+                      SharedPreferences prefs =
+                          await SharedPreferences.getInstance();
 
-                prefs.setString('name', controller.text);
-                UserData.name = controller.text;
+                      prefs.setString('name', controller.text);
+                      UserData.name = controller.text;
 
-                      Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) => Chapter(chapter: chapterZero,)));
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Chapter(
+                                    chapter: chapterZero,
+                                  )));
                     }
                   : null,
             )

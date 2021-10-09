@@ -20,37 +20,41 @@ class Chapter extends StatefulWidget {
 class _ChapterState extends State<Chapter> {
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [
-      Container(
-        decoration: BoxDecoration(
-            color: widget.colorBck,
-            borderRadius: BorderRadius.all(Radius.circular(12))),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Container(
-              height: 108,
-              width: 200,
-              padding: EdgeInsets.all(16),
-              alignment: Alignment.topLeft,
-              child: Text(
-                widget.title,
-                style: AppColors.bold,
+    return InkWell(
+      onTap: widget.go,
+      child: Stack(children: [
+        Container(
+          decoration: BoxDecoration(
+              color: widget.colorBck,
+              borderRadius: BorderRadius.all(Radius.circular(12))),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                height: 108,
+                width: 200,
+                padding: EdgeInsets.all(16),
+                alignment: Alignment.topLeft,
+                child: Text(
+                  widget.title,
+                  style: AppColors.bold,
+                ),
               ),
-            ),
-            Container(
-              alignment: Alignment.centerRight,
-              child: SvgPicture.asset(widget.image),
-            )
-          ],
+              Container(
+                
+                alignment: Alignment.centerRight,
+                child: SvgPicture.asset(widget.image),
+              )
+            ],
+          ),
         ),
-      ),
-      Container(
-        height: 108,
-        decoration: BoxDecoration(
-            color: Colors.black.withOpacity(widget.locked ? 0.0 : 0.3),
-            borderRadius: BorderRadius.all(Radius.circular(12))),
-      ),
-    ]);
+        Container(
+          height: 108,
+          decoration: BoxDecoration(
+              color: Colors.black.withOpacity(widget.locked ? 0.0 : 0.3),
+              borderRadius: BorderRadius.all(Radius.circular(12))),
+        ),
+      ]),
+    );
   }
 }

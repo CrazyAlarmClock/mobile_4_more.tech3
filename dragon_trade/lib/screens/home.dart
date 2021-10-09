@@ -1,8 +1,10 @@
 import 'package:dragon_trade/models/dragon.dart';
 import 'package:dragon_trade/models/user.dart';
+import 'package:dragon_trade/screens/chapters/chapter_1.dart';
 import 'package:dragon_trade/theme/theme_settings.dart';
 import 'package:dragon_trade/utils/fade_widget.dart';
 import 'package:dragon_trade/widget/chapter_card.dart';
+import 'package:dragon_trade/screens/chapters/chapter.dart' as scr;
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
@@ -87,7 +89,8 @@ class _HomeState extends State<Home> {
                   height: 8,
                 ),
                 Chapter(
-                  go: () => null,
+                  go: () =>Navigator.push(context, MaterialPageRoute(builder: (context)=>    scr.Chapter(chapter: chapterOne,))),
+               
                   title: 'Глава I. Цель — всему голова',
                   colorBck: Color(0xffD9FEDA),
                   image: 'assets/svg/ch_1.svg',

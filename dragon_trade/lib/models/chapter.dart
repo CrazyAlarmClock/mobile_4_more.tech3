@@ -6,5 +6,7 @@ class ChapterModel{
   final String name;
   final Widget text;
   final List<BottomButton> buttons;
-  ChapterModel({this.name,this.buttons,this.text});
+  final bool isBackButton;
+  final Text hint;
+  ChapterModel({this.name,this.buttons,this.text,this.isBackButton,this.hint});
 }

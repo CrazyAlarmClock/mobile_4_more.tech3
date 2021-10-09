@@ -14,6 +14,7 @@ List<ChapterModel> chapterZero = [
          
         )
       ],
+      isBackButton: false,
       text: Column(
         children: [
           SvgPicture.asset('assets/svg/violet_dragon.svg'),
@@ -37,6 +38,7 @@ List<ChapterModel> chapterZero = [
         ],
       )),
       ChapterModel(
+        isBackButton: false,
       name: 'Глава 0. Рождение дракона',
       buttons: [
         BottomButton(
