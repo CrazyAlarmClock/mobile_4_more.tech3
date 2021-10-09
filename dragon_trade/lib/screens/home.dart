@@ -26,20 +26,10 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: Color(0xffEBF3FE),
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        centerTitle: true,
         elevation: 0,
         backgroundColor: Color(0xffEBF3FE),
-        title: Container(
-          alignment: Alignment.center,
-          child: Column(children: [
-            SvgPicture.asset('assets/svg/logo.svg'),
-            Text('Dragon Invest III'.toUpperCase(), style: TextStyle(
-                color: Color(0xff022D9A),
-                fontSize: 19,
-                fontWeight: FontWeight.w900),)
-          ],),
-
-        )
+        title: SvgPicture.asset('assets/svg/logo2.svg'),
       ),
       body: SlidingUpPanel(
         boxShadow: [
@@ -53,19 +43,11 @@ class _HomeState extends State<Home> {
         minHeight: 300,
         maxHeight: 900,
         body: Center(
-          child: Column(
+          child: Stack(
+            alignment: Alignment.center,
             children: [
-              SizedBox(
-                height: 20,
-              ),
-              InkWell(
-                onTap: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ResultScreen())),
-                child: Text(
-                  DragonData.name ?? 'null',
-                  style: AppColors.bold,
-                ),
-              )
+              Positioned(
+                  top: 100, child: SvgPicture.asset('assets/svg/oval.svg', height: 250,))
             ],
           ),
         ),
@@ -115,9 +97,8 @@ class _HomeState extends State<Home> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => scr.Chapter(
-                            chapter: chapterWitch
-                            ,
-                          ))),
+                                chapter: chapterWitch,
+                              ))),
                   title: 'Башни магов',
                   txtColor: Color(0xffA35D38),
                   colorBck: Color(0xffFFF0F0),
@@ -133,8 +114,8 @@ class _HomeState extends State<Home> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => scr.Chapter(
-                            chapter: chapterCaves,
-                          ))),
+                                chapter: chapterCaves,
+                              ))),
                   title: 'Гномьи пещеры',
                   txtColor: Color(0xff292844),
                   colorBck: Color(0xffE5E5E5),
@@ -150,8 +131,8 @@ class _HomeState extends State<Home> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => scr.Chapter(
-                            chapter: chapterKingdom,
-                          ))),
+                                chapter: chapterKingdom,
+                              ))),
                   title: 'Людское королевство',
                   txtColor: Color(0xff537F5E),
                   colorBck: Color(0xffF2F6D7),
@@ -167,8 +148,8 @@ class _HomeState extends State<Home> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => scr.Chapter(
-                            chapter: chapterTwo,
-                          ))),
+                                chapter: chapterTwo,
+                              ))),
                   title: 'Земли лепреконов',
                   txtColor: Color(0xffAC121B),
                   colorBck: Color(0xffFFEFEF),
