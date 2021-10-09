@@ -1,5 +1,7 @@
 import 'package:dragon_trade/models/chapter.dart';
+import 'package:dragon_trade/models/user.dart';
 import 'package:dragon_trade/screens/chapters/chapter.dart' as scr;
+import 'package:dragon_trade/screens/home.dart';
 import 'package:dragon_trade/screens/test.dart';
 import 'package:dragon_trade/theme/theme_settings.dart';
 import 'package:dragon_trade/utils/fade_widget.dart';
@@ -169,7 +171,14 @@ List<ChapterModel> chapterOne2 = [
       buttons: [
         BottomButton(
           name: 'Далее',
-          
+          handler: (){
+            if((UserData.gold==0||UserData.gold==null)&&UserData.lockAll){
+              UserData.gold=1000;
+              UserData.lockAll=false;
+              UserData.dom1=true;
+            }
+            Navigator.pushReplacement(Application.navKey.currentContext, MaterialPageRoute(builder: (c)=>Home()));
+          },
         )
       ],
       isBackButton: true,
