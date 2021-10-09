@@ -22,6 +22,7 @@ class ResultScreen extends StatelessWidget {
     String tempPath = tempDir.path;
     var filePath = tempPath + '/Final.png';
     print(filePath);
+
     await File(filePath).writeAsBytes(
         buffer.asUint8List(data.offsetInBytes, data.lengthInBytes));
     return filePath.toString();
@@ -29,6 +30,7 @@ class ResultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(UserData.balance);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
