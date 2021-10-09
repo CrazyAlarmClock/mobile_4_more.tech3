@@ -2,6 +2,7 @@ import 'package:dragon_trade/models/chapter.dart';
 import 'package:dragon_trade/models/keys.dart';
 import 'package:dragon_trade/models/user.dart';
 import 'package:dragon_trade/screens/chapters/chapter.dart' as scr;
+import 'package:dragon_trade/screens/chapters/go_home.dart';
 import 'package:dragon_trade/screens/home.dart';
 import 'package:dragon_trade/theme/theme_settings.dart';
 import 'package:dragon_trade/utils/fade_widget.dart';
@@ -164,6 +165,10 @@ int value=0;
             UserData.leprecons=value;
             UserData.gold=(UserData.gold??1000)- value;
               UserData.dom6 = true;
+          if(UserData.dom2&&UserData.dom3&&UserData.dom4&&UserData.dom5&&UserData.dom6){
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (c)=>scr.Chapter(chapter: chapterHome,)));
+              }
+              else
             Navigator.of(context).pop();
           },
         ) ]),
