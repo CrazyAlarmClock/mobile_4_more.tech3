@@ -53,7 +53,7 @@ List<ChapterModel> chapterForest = [
       name: 'Эльфийские леса',
       buttons: [
         BottomButton(
-          name: 'Далее',
+          name: 'Вложить монеты',
         )
       ],
       isBackButton: true,

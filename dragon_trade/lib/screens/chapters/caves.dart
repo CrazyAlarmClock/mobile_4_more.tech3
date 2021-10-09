@@ -55,7 +55,7 @@ List<ChapterModel> chapterCaves = [
       name: 'Гномьи пещеры',
       buttons: [
         BottomButton(
-          name: 'Далее',
+          name: 'Вложить монеты',
         )
       ],
       isBackButton: true,
