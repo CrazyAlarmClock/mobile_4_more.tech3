@@ -1,6 +1,7 @@
 import 'package:dragon_trade/models/user.dart';
 import 'package:dragon_trade/screens/chapters/chapter.dart';
 import 'package:dragon_trade/screens/chapters/chapter_0.dart';
+import 'package:dragon_trade/screens/test.dart';
 import 'package:dragon_trade/theme/theme_settings.dart';
 import 'package:dragon_trade/widget/button.dart';
 import 'package:flutter/material.dart';
@@ -16,25 +17,6 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   TextEditingController controller = new TextEditingController();
-  Artboard _riveArtboard;
-  RiveAnimationController _controller;
-
-
-    @override
-    void initState() {
-      super.initState();
-
-      rootBundle.load('assets/rive/ill-1.riv').then(
-            (data) async {
-          final file = RiveFile();
-          if (file.import(data)) {
-            final artboard = file.mainArtboard;
-            artboard.addController(_controller = SimpleAnimation('Animation 1'));
-            setState(() => _riveArtboard = artboard);
-          }
-        },
-      );
-    }
 
   @override
   Widget build(BuildContext context) {
@@ -44,8 +26,7 @@ class _LoginState extends State<Login> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Container(child: Rive(artboard: _riveArtboard)),
-   //         SvgPicture.asset('assets/svg/violet_dragon.svg'),
+            AnimationRive(animation: '1',),
             SizedBox(
               height: 52,
             ),
