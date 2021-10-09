@@ -33,7 +33,7 @@ class _HomeState extends State<Home> {
           alignment: Alignment.center,
           child: Column(children: [
             SvgPicture.asset('assets/svg/logo.svg'),
-            Text('Dragon Invest III'.toLowerCase(), style: TextStyle(
+            Text('Dragon Invest III'.toUpperCase(), style: TextStyle(
                 color: Color(0xff022D9A),
                 fontSize: 19,
                 fontWeight: FontWeight.w900),)
