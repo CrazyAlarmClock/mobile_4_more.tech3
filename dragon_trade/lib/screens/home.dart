@@ -94,18 +94,18 @@ class _HomeState extends State<Home> {
                   height: 8,
                 ),
                 Chapter(
-                  go: () => Navigator.push(
+                  go:  () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => scr.Chapter(
-                                chapter: chapterForest,
-                              ))),
+                          builder: (context) => ChapterForest(chapter: chapterForest,)),).then((value) => setState(() {
+              
+            })),
                   title: 'Эльфийские леса',
                   txtColor: Color(0xff207D83),
                   colorBck: Color(0xffE1F8FF),
                   image: 'assets/illustration button-1.png',
                   done: false,
-                  lostMoney: 0,
+                  lostMoney: UserData.elves,
                 ),
                 SizedBox(
                   height: 8,
@@ -114,33 +114,32 @@ class _HomeState extends State<Home> {
                   go: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => scr.Chapter(
-                            chapter: chapterWitch
-                            ,
-                          ))),
+                          builder: (context) => ChapterWitches(chapter: chapterWitch,)),).then((value) => setState(() {
+              
+            })),
                   title: 'Башни магов',
                   txtColor: Color(0xffA35D38),
                   colorBck: Color(0xffFFF0F0),
                   image: 'assets/illustration button-2.png',
                   done: false,
-                  lostMoney: 0,
+                  lostMoney: UserData.witchers,
                 ),
                 SizedBox(
                   height: 8,
                 ),
                 Chapter(
-                  go: () => Navigator.push(
+                  go:  () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => scr.Chapter(
-                            chapter: chapterCaves,
-                          ))),
+                          builder: (context) => ChapterCave(chapter: chapterCaves,)),).then((value) => setState(() {
+              
+            })),
                   title: 'Гномьи пещеры',
                   txtColor: Color(0xff292844),
                   colorBck: Color(0xffE5E5E5),
                   image: 'assets/illustration button-3.png',
                   done: false,
-                  lostMoney: 0,
+                  lostMoney: UserData.gnomes,
                 ),
                 SizedBox(
                   height: 8,
@@ -149,15 +148,15 @@ class _HomeState extends State<Home> {
                   go: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => scr.Chapter(
-                            chapter: chapterKingdom,
-                          ))),
+                          builder: (context) => ChapterPeople(chapter: chapterWitch,)),).then((value) => setState(() {
+              
+            })),
                   title: 'Людское королевство',
                   txtColor: Color(0xff537F5E),
                   colorBck: Color(0xffF2F6D7),
                   image: 'assets/illustration button-4.png',
                   done: false,
-                  lostMoney: 0,
+                  lostMoney: UserData.people,
                 ),
                 SizedBox(
                   height: 8,
@@ -166,15 +165,15 @@ class _HomeState extends State<Home> {
                   go: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => scr.Chapter(
-                            chapter: chapterTwo,
-                          ))),
+                          builder: (context) => ChapterLeprecons(chapter: chapterTwo,)),).then((value) => setState(() {
+              
+            })),
                   title: 'Земли лепреконов',
                   txtColor: Color(0xffAC121B),
                   colorBck: Color(0xffFFEFEF),
                   image: 'assets/illustration button-5.png',
                   done: false,
-                  lostMoney: 0,
+                  lostMoney: UserData.leprecons,
                 ),
                 SizedBox(
                   height: 8,
