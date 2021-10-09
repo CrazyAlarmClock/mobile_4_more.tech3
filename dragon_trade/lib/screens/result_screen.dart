@@ -106,7 +106,7 @@ class ResultScreen extends StatelessWidget {
                                 style: TextStyle(fontSize: 20),
                                 children: <TextSpan>[
                                   TextSpan(
-                                    text: UserData.gold ?? '1500',
+                                    text: UserData.gold.toString() ?? '1500',
                                     style: TextStyle(
                                         color: Color(0xff333333),
                                         fontSize: 49,
