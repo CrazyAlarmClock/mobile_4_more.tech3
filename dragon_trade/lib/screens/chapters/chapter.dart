@@ -35,7 +35,9 @@ class _ChapterState extends State<Chapter> {
                     context, MaterialPageRoute(builder: (context) => Home()));
           } else {
             UserData.page += 1;
-            setState(() {});
+            setState(() {
+              
+            });
           }
         },
       );
@@ -87,10 +89,16 @@ class _ChapterState extends State<Chapter> {
           barrierColor: Colors.black.withOpacity(0.5),
       backgroundColor: Colors.transparent,
         isScrollControlled: true,
+        constraints: BoxConstraints(
+ 
+  minHeight: 0.0,
+  maxHeight: MediaQuery.of(Application.navKey.currentContext).size.height-100
+),
         context: Application.navKey.currentContext,
         builder: (BuildContext bc) {
           return Wrap(children: <Widget>[
             Container(
+              
               color: Colors.transparent,
               child: Container(
                 decoration: new BoxDecoration(
@@ -99,38 +107,43 @@ class _ChapterState extends State<Chapter> {
                         topLeft: const Radius.circular(25.0),
                         topRight: const Radius.circular(25.0))),
                 child: Column(
-                  children: [
-                    
+                    children: [
+                      Stack(
+                        alignment: Alignment.centerLeft,
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text('Подсказка',style:TextStyle(color: Color(0xff333333),fontSize: 18,fontWeight: FontWeight.w900)),
+                            ],
+                          ),
+                          IconButton(
+                          padding: EdgeInsets.all(0),
+                          onPressed: (){
+                          Navigator.pop(bc);
+                        }, icon: SvgPicture.asset('assets/svg/ic_close.svg')),
+                       
+                        ],
+                      ),
                       
-                   
+                      Container(
+                        height: MediaQuery.of(bc).size.height/2,
+                        child: ListView(
                       
-                    Stack(
-                      alignment: Alignment.centerLeft,
-                      children: [
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text('Подсказка',style:TextStyle(color: Color(0xff333333),fontSize: 18,fontWeight: FontWeight.w900)),
+                            Padding(
+                              padding: EdgeInsets.only(left:16.0,right: 16,bottom: 26),
+                              child:text
+                            ),
                           ],
                         ),
-                        IconButton(
-                        padding: EdgeInsets.all(0),
-                        onPressed: (){
-                        Navigator.pop(bc);
-                      }, icon: SvgPicture.asset('assets/svg/ic_close.svg')),
-                     
-                      ],
-                    ),
-                    
-                    Padding(
-                      padding: EdgeInsets.only(left:16.0,right: 16,bottom: 26),
-                      child:text
-                    ),
-                  ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            )
+            
           ]);
         });
   }

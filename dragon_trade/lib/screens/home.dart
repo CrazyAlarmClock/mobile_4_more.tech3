@@ -1,6 +1,7 @@
 import 'package:dragon_trade/models/dragon.dart';
 import 'package:dragon_trade/models/user.dart';
 import 'package:dragon_trade/screens/chapters/chapter_1.dart';
+import 'package:dragon_trade/screens/chapters/chapter_2.dart';
 import 'package:dragon_trade/theme/theme_settings.dart';
 import 'package:dragon_trade/utils/fade_widget.dart';
 import 'package:dragon_trade/widget/chapter_card.dart';
@@ -100,8 +101,8 @@ class _HomeState extends State<Home> {
                   height: 8,
                 ),
                 Chapter(
-                  go: () => null,
-                  title: 'Глава I. Цель — всему голова',
+                  go: () => Navigator.push(context, MaterialPageRoute(builder: (context)=>    scr.Chapter(chapter: chapterTwo,))),
+                  title: 'шляемся по королевству',
                   colorBck: Color(0xffD9FEDA),
                   image: 'assets/svg/ch_1.svg',
                   locked: false,
