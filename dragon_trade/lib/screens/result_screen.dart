@@ -4,6 +4,7 @@ import 'dart:typed_data';
 import 'package:dragon_trade/models/dragon.dart';
 import 'package:dragon_trade/models/user.dart';
 import 'package:dragon_trade/screens/chapters/chapter.dart';
+import 'package:dragon_trade/screens/test.dart';
 import 'package:dragon_trade/theme/theme_settings.dart';
 import 'package:dragon_trade/widget/button.dart';
 import 'package:flutter/cupertino.dart';
@@ -49,55 +50,59 @@ class ResultScreen extends StatelessWidget {
         child: Column(
           children: [
             Screenshot(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 20),
-                  child: Container(
-                    height: 500,
-                    child: Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        Positioned(
-                          child: Container(
-                            padding: EdgeInsets.all(16),
-                            alignment: Alignment.topRight,
-                            child: SvgPicture.asset('assets/svg/logo.svg'),
-                          ),
-                        ),
-                        Positioned(
-                            bottom: 60,
+                child: Container(
+                  color: Colors.white,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 20),
+                    child: Container(
+                      height: 500,
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Positioned(
                             child: Container(
-                              alignment: Alignment.bottomCenter,
-                              child: Text('Доход дракона',
+                              padding: EdgeInsets.all(16),
+                              alignment: Alignment.topRight,
+                              child: SvgPicture.asset('assets/svg/logo.svg'),
+                            ),
+                          ),
+                          AnimationRive(animation: '4',big: true,),
+                          Positioned(
+                              bottom: 60,
+                              child: Container(
+                                alignment: Alignment.bottomCenter,
+                                child: Text('Доход дракона',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 14,
+                                      color: Color(0xff333333).withOpacity(0.7),
+                                    )),
+                              )),
+                          Container(
+                            alignment: Alignment.bottomCenter,
+                            child: RichText(
+                                text: TextSpan(
+                              style: TextStyle(fontSize: 20),
+                              children: <TextSpan>[
+                                TextSpan(
+                                  text: UserData.gold.toString() ?? '1500',
                                   style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 14,
-                                    color: Color(0xff333333).withOpacity(0.7),
-                                  )),
+                                      color: Color(0xff333333),
+                                      fontSize: 49,
+                                      fontWeight: FontWeight.w900),
+                                ),
+                                TextSpan(
+                                  text: ' +30,3%',
+                                  style: TextStyle(
+                                      color: Color(0xff45C051),
+                                      fontSize: 36,
+                                      fontWeight: FontWeight.w900),
+                                ),
+                              ],
                             )),
-                        Container(
-                          alignment: Alignment.bottomCenter,
-                          child: RichText(
-                              text: TextSpan(
-                            style: TextStyle(fontSize: 20),
-                            children: <TextSpan>[
-                              TextSpan(
-                                text: UserData.gold.toString() ?? '1500',
-                                style: TextStyle(
-                                    color: Color(0xff333333),
-                                    fontSize: 49,
-                                    fontWeight: FontWeight.w900),
-                              ),
-                              TextSpan(
-                                text: ' +30,3%',
-                                style: TextStyle(
-                                    color: Color(0xff45C051),
-                                    fontSize: 36,
-                                    fontWeight: FontWeight.w900),
-                              ),
-                            ],
-                          )),
-                        )
-                      ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),

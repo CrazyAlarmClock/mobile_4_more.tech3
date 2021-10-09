@@ -145,7 +145,7 @@ List<ChapterModel> chapterOne1 = [
       isBackButton: true,
       text: Column(
         children: [
-          AnimationRive(animation: '6',),
+         AnimationRive(animation: '6',),
           SizedBox(
             height: 48,
           ),
@@ -175,7 +175,7 @@ List<ChapterModel> chapterOne2 = [
       isBackButton: true,
       text: Column(
         children: [
-        AnimationRive(animation: '7',),
+          AnimationRive(animation: '7',),
           SizedBox(
             height: 48,
           ),
