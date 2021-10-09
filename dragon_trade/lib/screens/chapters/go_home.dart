@@ -3,6 +3,7 @@ import 'package:dragon_trade/screens/result_screen.dart';
 import 'package:dragon_trade/screens/test.dart';
 import 'package:dragon_trade/theme/theme_settings.dart';
 import 'package:dragon_trade/utils/balance.dart';
+import 'package:dragon_trade/utils/risk.dart';
 import 'package:dragon_trade/utils/fade_widget.dart';
 import 'package:dragon_trade/widget/button.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,7 @@ List<ChapterModel> chapterHome = [
           name: 'Рассчитать',
          handler: (){
            calculateTheBalance();
+           calculateLevelOfRisk();
            Navigator.pushReplacement(Application.navKey.currentContext, MaterialPageRoute(builder: (c)=>ResultScreen()));
          },
         ),

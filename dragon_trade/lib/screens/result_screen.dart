@@ -32,6 +32,7 @@ class ResultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     print(UserData.balance);
+      print(UserData.risk);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
