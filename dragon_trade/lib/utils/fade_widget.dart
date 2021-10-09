@@ -15,7 +15,7 @@ class _FadeWidgetState extends State<FadeWidget> {
   Widget build(BuildContext context) {
     return FadeIn(
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(0.0),
         child: widget.widget,
       ),
       // Optional paramaters
