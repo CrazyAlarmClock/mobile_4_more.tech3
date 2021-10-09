@@ -20,44 +20,22 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffF3F3F3),
+      backgroundColor: Color(0xffEBF3FE),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 0,
-        backgroundColor: Color(0xffF3F3F3),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Row(
-              children: [
-                Container(
-                  child: SvgPicture.asset('assets/svg/ic_user.svg'),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Text(
-                  UserData.name ?? 'null',
-                  style: AppColors.text,
-                ),
-              ],
-            ),
-            Row(
-              children: [
-                Text(
-                  UserData.gold.toString() ?? 'null',
-                  style: AppColors.text,
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Container(
-                  child: SvgPicture.asset('assets/svg/ic_faq.svg'),
-                ),
-              ],
-            ),
-          ],
-        ),
+        backgroundColor: Color(0xffEBF3FE),
+        title: Container(
+          alignment: Alignment.center,
+          child: Column(children: [
+            SvgPicture.asset('assets/svg/logo.svg'),
+            Text('Dragon Invest III'.toLowerCase(), style: TextStyle(
+                color: Color(0xff022D9A),
+                fontSize: 19,
+                fontWeight: FontWeight.w900),)
+          ],),
+
+        )
       ),
       body: SlidingUpPanel(
         boxShadow: [
@@ -69,7 +47,7 @@ class _HomeState extends State<Home> {
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(24.0), topRight: Radius.circular(24.0)),
         minHeight: 300,
-        maxHeight: 600,
+        maxHeight: 900,
         body: Center(
           child: Column(
             children: [
@@ -77,9 +55,9 @@ class _HomeState extends State<Home> {
                 height: 20,
               ),
               InkWell(
-                onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>   ResultScreen())),
+                onTap: () => Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ResultScreen())),
                 child: Text(
-
                   DragonData.name ?? 'null',
                   style: AppColors.bold,
                 ),
@@ -95,32 +73,106 @@ class _HomeState extends State<Home> {
                   height: 8,
                 ),
                 Chapter(
-                  go: () =>Navigator.push(context, MaterialPageRoute(builder: (context)=>    scr.Chapter(chapter: chapterOne,))),
-               
-                  title: 'Глава I. Цель — всему голова',
-                  colorBck: Color(0xffD9FEDA),
-                  image: 'assets/svg/ch_1.svg',
-                  locked: true,
+                  go: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => scr.Chapter(
+                                chapter: chapterOne,
+                              ))),
+                  title: 'Дом казначея',
+                  txtColor: Color(0xff54375E),
+                  colorBck: Color(0xffF9F1FF),
+                  image: 'assets/illustration button.png',
+                  done: false,
+                  lostMoney: 0,
                 ),
                 SizedBox(
                   height: 8,
                 ),
                 Chapter(
-                  go: () => Navigator.push(context, MaterialPageRoute(builder: (context)=>    scr.Chapter(chapter: chapterTwo,))),
-                  title: 'шляемся по королевству',
-                  colorBck: Color(0xffD9FEDA),
-                  image: 'assets/svg/ch_1.svg',
-                  locked: false,
+                  go: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => scr.Chapter(
+                                chapter: chapterTwo,
+                              ))),
+                  title: 'Эльфийские леса',
+                  txtColor: Color(0xff207D83),
+                  colorBck: Color(0xffE1F8FF),
+                  image: 'assets/illustration button-1.png',
+                  done: false,
+                  lostMoney: 0,
                 ),
                 SizedBox(
                   height: 8,
                 ),
                 Chapter(
-                  go: () => null,
-                  title: 'Глава I. Цель — всему голова',
-                  colorBck: Color(0xffD9FEDA),
-                  image: 'assets/svg/ch_1.svg',
-                  locked: false,
+                  go: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => scr.Chapter(
+                            chapter: chapterTwo,
+                          ))),
+                  title: 'Башни магов',
+                  txtColor: Color(0xffA35D38),
+                  colorBck: Color(0xffFFF0F0),
+                  image: 'assets/illustration button-2.png',
+                  done: false,
+                  lostMoney: 0,
+                ),
+                SizedBox(
+                  height: 8,
+                ),
+                Chapter(
+                  go: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => scr.Chapter(
+                            chapter: chapterTwo,
+                          ))),
+                  title: 'Гномьи пещеры',
+                  txtColor: Color(0xff292844),
+                  colorBck: Color(0xffE5E5E5),
+                  image: 'assets/illustration button-3.png',
+                  done: false,
+                  lostMoney: 0,
+                ),
+                SizedBox(
+                  height: 8,
+                ),
+                Chapter(
+                  go: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => scr.Chapter(
+                            chapter: chapterTwo,
+                          ))),
+                  title: 'Людское королевство',
+                  txtColor: Color(0xff537F5E),
+                  colorBck: Color(0xffF2F6D7),
+                  image: 'assets/illustration button-4.png',
+                  done: false,
+                  lostMoney: 0,
+                ),
+                SizedBox(
+                  height: 8,
+                ),
+                Chapter(
+                  go: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => scr.Chapter(
+                            chapter: chapterTwo,
+                          ))),
+                  title: 'Земли лепреконов',
+                  txtColor: Color(0xffAC121B),
+                  colorBck: Color(0xffFFEFEF),
+                  image: 'assets/illustration button-5.png',
+                  done: false,
+                  lostMoney: 0,
+                ),
+                SizedBox(
+                  height: 8,
                 ),
               ],
             )),
