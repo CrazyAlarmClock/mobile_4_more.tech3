@@ -54,7 +54,7 @@ List<ChapterModel> chapterKingdom = [
       name: 'Людское королевство',
       buttons: [
         BottomButton(
-          name: 'Далее',
+          name: 'Вложить монеты',
         )
       ],
       isBackButton: true,

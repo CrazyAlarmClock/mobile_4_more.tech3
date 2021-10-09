@@ -85,7 +85,7 @@ List<ChapterModel> chapterWitch = [
       name: 'Башни магов',
       buttons: [
         BottomButton(
-          name: 'Далее',
+          name: 'Вложить монеты',
         )
       ],
       isBackButton: true,
