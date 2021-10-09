@@ -7,6 +7,7 @@ import 'package:dragon_trade/screens/chapters/forests.dart';
 import 'package:dragon_trade/screens/chapters/kingdom.dart';
 import 'package:dragon_trade/screens/chapters/witchers.dart';
 import 'package:dragon_trade/screens/result_screen.dart';
+import 'package:dragon_trade/screens/test.dart';
 import 'package:dragon_trade/theme/theme_settings.dart';
 import 'package:dragon_trade/utils/fade_widget.dart';
 import 'package:dragon_trade/widget/chapter_card.dart';
@@ -48,7 +49,7 @@ class _HomeState extends State<Home> {
             alignment: Alignment.center,
             children: [
               Positioned(
-                  top: 100, child: SvgPicture.asset('assets/svg/oval.svg', height: 250,))
+                  top: 0, child: AnimationRive(animation: '4', big: true,))
             ],
           ),
         ),

@@ -11,8 +11,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class AnimationRive extends StatefulWidget {
   final String animation;
+  final bool big;
 
-  const AnimationRive({Key key, this.animation}) : super(key: key);
+  const AnimationRive({Key key, this.animation, this.big}) : super(key: key);
   @override
   _AnimationRiveState createState() => _AnimationRiveState();
 }
@@ -40,6 +41,8 @@ class _AnimationRiveState extends State<AnimationRive> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: 500, height: 210, child: Rive(artboard: _riveArtboard));
+        width: widget.big ?? false ? 500 : 500,
+        height: widget.big ?? false ? 400 : 240,
+        child: Rive(artboard: _riveArtboard));
   }
 }
