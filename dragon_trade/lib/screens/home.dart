@@ -26,20 +26,10 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: Color(0xffEBF3FE),
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        centerTitle: true,
         elevation: 0,
         backgroundColor: Color(0xffEBF3FE),
-        title: Container(
-          alignment: Alignment.center,
-          child: Column(children: [
-            SvgPicture.asset('assets/svg/logo.svg'),
-            Text('Dragon Invest III'.toUpperCase(), style: TextStyle(
-                color: Color(0xff022D9A),
-                fontSize: 19,
-                fontWeight: FontWeight.w900),)
-          ],),
-
-        )
+        title: SvgPicture.asset('assets/svg/logo2.svg'),
       ),
       body: SlidingUpPanel(
         boxShadow: [
@@ -53,19 +43,11 @@ class _HomeState extends State<Home> {
         minHeight: 300,
         maxHeight: 900,
         body: Center(
-          child: Column(
+          child: Stack(
+            alignment: Alignment.center,
             children: [
-              SizedBox(
-                height: 20,
-              ),
-              InkWell(
-                onTap: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ResultScreen())),
-                child: Text(
-                  DragonData.name ?? 'null',
-                  style: AppColors.bold,
-                ),
-              )
+              Positioned(
+                  top: 100, child: SvgPicture.asset('assets/svg/oval.svg', height: 250,))
             ],
           ),
         ),
