@@ -1,6 +1,7 @@
 import 'package:dragon_trade/models/dragon.dart';
 import 'package:dragon_trade/models/user.dart';
 import 'package:dragon_trade/screens/chapters/chapter_1.dart';
+import 'package:dragon_trade/screens/result_screen.dart';
 import 'package:dragon_trade/theme/theme_settings.dart';
 import 'package:dragon_trade/utils/fade_widget.dart';
 import 'package:dragon_trade/widget/chapter_card.dart';
@@ -74,9 +75,13 @@ class _HomeState extends State<Home> {
               SizedBox(
                 height: 20,
               ),
-              Text(
-                DragonData.name ?? 'null',
-                style: AppColors.bold,
+              InkWell(
+                onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>   ResultScreen())),
+                child: Text(
+
+                  DragonData.name ?? 'null',
+                  style: AppColors.bold,
+                ),
               )
             ],
           ),
