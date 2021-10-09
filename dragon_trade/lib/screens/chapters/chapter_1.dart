@@ -18,7 +18,7 @@ List<ChapterModel> chapterOne = [
             fontSize: 14,
             fontWeight: FontWeight.w500),
       ),
-      name: 'Глава I. Цель — всему голова',
+      name: 'Дом казначея',
       buttons: [
         BottomButton(
           name: 'Далее',
@@ -107,7 +107,7 @@ List<ChapterModel> chapterOne = [
         ],
       )),
   ChapterModel(
-      name: 'Глава I. Цель — всему голова',
+      name: 'Дом казначея',
       buttons: [
         BottomButton(
           name: 'Далее',
@@ -151,7 +151,7 @@ List<ChapterModel> chapterOne = [
         ],
       )),
   ChapterModel(
-      name: 'Глава I. Цель — всему голова',
+      name: 'Дом казначея',
       buttons: [
         BottomButton(
           name: 'Далее',

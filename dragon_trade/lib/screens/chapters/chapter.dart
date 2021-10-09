@@ -31,6 +31,9 @@ class _ChapterState extends State<Chapter> {
             UserData.page = 0;
            if( widget.chapter[UserData.page].isBackButton)
                 { Navigator.pop(context);
+                
+
+                
                 UserData.lockAll=false;
 
                 }
@@ -44,7 +47,10 @@ class _ChapterState extends State<Chapter> {
           }
         },
       );
-      buttons.add(button);
+      buttons.add(Padding(
+        padding: const EdgeInsets.only(bottom:16.0),
+        child: button,
+      ));
     });
     return buttons;
   }
@@ -74,14 +80,13 @@ class _ChapterState extends State<Chapter> {
             title: Text(widget.chapter[UserData.page].name,
                 style: AppColors.bold)),
         backgroundColor: Colors.white,
-        body:  SingleChildScrollView(
-          child: Column(
+        body:   Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   widget.chapter[UserData.page].text,
                   ...getButtons(),
                 ]),
-        ),
+        
         );
   }
 

@@ -81,7 +81,7 @@ int value=0;
         backgroundColor: Colors.white,
         body:  SingleChildScrollView(
           child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                
                 children: [
                 Column(
         children: [
@@ -143,6 +143,9 @@ int value=0;
     
       ],
    ),
+    SizedBox(
+            height: 16,
+          ),
           Gossip(
               name:
                   'Маги знают цену золоту, держат нос по ветру и всегда вкурсе где и почем купить редкие ингридиенты.'),
@@ -154,13 +157,16 @@ int value=0;
                   'Архимаг Елитодий каждый код отправляет своих учеников в разные  королевства за новостями и редкостями.'),
         ],
                 ),
+                 SizedBox(
+            height: 32,
+          ),
                   BottomButton(
           name: 'Вложить монеты',
           handler: (){
             
             UserData.witchers=value;
             UserData.gold=(UserData.gold??1000)- value;
-              UserData.dom2 = true;
+              UserData.dom3 = true;
             Navigator.of(context).pop();
           },
         )
