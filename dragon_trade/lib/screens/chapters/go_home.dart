@@ -1,5 +1,6 @@
 import 'package:dragon_trade/models/chapter.dart';
 import 'package:dragon_trade/screens/result_screen.dart';
+import 'package:dragon_trade/screens/test.dart';
 import 'package:dragon_trade/theme/theme_settings.dart';
 import 'package:dragon_trade/utils/balance.dart';
 import 'package:dragon_trade/utils/fade_widget.dart';
@@ -25,7 +26,8 @@ List<ChapterModel> chapterHome = [
       isBackButton: true,
       text: Column(
         children: [
-          SvgPicture.asset('assets/svg/violet_dragon.svg'),
+          AnimationRive(animation: '13',),
+
           SizedBox(
             height: 48,
           ),

@@ -137,7 +137,7 @@ List<ChapterModel> chapterOne = [
       isBackButton: true,
       text: Column(
         children: [
-          SvgPicture.asset('assets/svg/violet_dragon.svg'),
+         AnimationRive(animation: '6',),
           SizedBox(
             height: 48,
           ),
@@ -161,7 +161,7 @@ List<ChapterModel> chapterOne = [
       isBackButton: true,
       text: Column(
         children: [
-          SvgPicture.asset('assets/svg/violet_dragon.svg'),
+          AnimationRive(animation: '7',),
           SizedBox(
             height: 48,
           ),

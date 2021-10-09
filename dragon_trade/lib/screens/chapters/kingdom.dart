@@ -4,6 +4,7 @@ import 'package:dragon_trade/models/user.dart';
 import 'package:dragon_trade/screens/chapters/chapter.dart' as scr;
 import 'package:dragon_trade/screens/chapters/go_home.dart';
 import 'package:dragon_trade/screens/home.dart';
+import 'package:dragon_trade/screens/test.dart';
 import 'package:dragon_trade/theme/theme_settings.dart';
 import 'package:dragon_trade/utils/fade_widget.dart';
 import 'package:dragon_trade/widget/button.dart';
@@ -87,7 +88,7 @@ int value=0;
                 children: [
                 Column(
         children: [
-          SvgPicture.asset('assets/svg/violet_dragon.svg'),
+          AnimationRive(animation: '9',),
           SizedBox(
             height: 48,
           ),
