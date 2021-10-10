@@ -50,7 +50,7 @@ return ' +${(percent-100).toStringAsFixed(1)}%';
   @override
   Widget build(BuildContext context) {
     print(UserData.balance);
-      print(UserData.risk);
+    print(UserData.risk);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -72,9 +72,9 @@ return ' +${(percent-100).toStringAsFixed(1)}%';
                 child: Container(
                   color: Colors.white,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 20),
+                    padding: const EdgeInsets.symmetric(vertical: 0),
                     child: Container(
-                      height: 500,
+                      height: 450,
                       child: Stack(
                         alignment: Alignment.center,
                         children: [
@@ -82,7 +82,7 @@ return ' +${(percent-100).toStringAsFixed(1)}%';
                             child: Container(
                               padding: EdgeInsets.all(16),
                               alignment: Alignment.topRight,
-                              child: SvgPicture.asset('assets/svg/logo.svg'),
+                              child: SvgPicture.asset('assets/svg/logo3.svg'),
                             ),
                           ),
                           AnimationRive(
@@ -110,7 +110,7 @@ return ' +${(percent-100).toStringAsFixed(1)}%';
                                   text:(getSum(UserData.elves, 32.0)+getSum(UserData.witchers, 18.0)+getSum(UserData.gnomes, 4.3)+getSum(UserData.people, 12.0)+getSum(UserData.leprecons, -50.0)+(1000-UserData.witchers-UserData.people-UserData.gnomes-UserData.leprecons-UserData.elves)).toStringAsFixed(0),
                                   style: TextStyle(
                                       color: Color(0xff333333),
-                                      fontSize: 49,
+                                      fontSize: 36,
                                       fontWeight: FontWeight.w900),
                                 ),
                                 TextSpan(
@@ -129,6 +129,60 @@ return ' +${(percent-100).toStringAsFixed(1)}%';
                   ),
                 ),
                 controller: screenshotController),
+            BottomButton(
+              activeColor: Color(0xff3A83F1),
+              textColor: Colors.white,
+              handler: () async {
+                await screenshotController
+                    .capture()
+                    .then((Uint8List image) async {
+                  print(image.toString());
+                  Share.shareFiles([await createReuslt(image)],
+                      text: '#vtbinvest #dragoninvest3 #ВТБ');
+                });
+              },
+              name: "Поделиться результатами в соц сетях",
+            ),
+            Container(
+              padding: EdgeInsets.all(16),
+              child: Container(
+                height: 56,
+                  decoration: BoxDecoration(
+                      color: Color(0xffEBF3FE),
+                      borderRadius: BorderRadius.all(Radius.circular(12))),
+                  padding: EdgeInsets.all(12),
+                  alignment: Alignment.center,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Скачать',
+                        style: TextStyle(
+                            color: Color(0xff14315C),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Image.asset(
+                        'assets/vtb2.png',
+                        width: 24,
+                        height: 24,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        'ВТБ Мои Инвестиции',
+                        style: TextStyle(
+                            color: Color(0xff14315C),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500),
+                      ),
+                    ],
+                  )),
+            ),
             SizedBox(
               height: 30,
             ),
@@ -167,20 +221,6 @@ return ' +${(percent-100).toStringAsFixed(1)}%';
                 money: getSum(UserData.leprecons, -50.0).toStringAsFixed(0)),
             SizedBox(
               height: 15,
-            ),
-            BottomButton(
-              activeColor: Colors.white,
-              textColor: Color(0xff3A83F1),
-              handler: () async {
-                await screenshotController
-                    .capture()
-                    .then((Uint8List image) async {
-                  print(image.toString());
-                  Share.shareFiles([await createReuslt(image)],
-                      text: '#vtbinvest #dragoninvest3 #ВТБ');
-                });
-              },
-              name: "Поделиться результатами в соц сетях",
             ),
             SizedBox(
               height: 15,
