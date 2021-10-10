@@ -33,7 +33,7 @@ class ResultScreen extends StatelessWidget {
     if (money == 0) {
       return '0';
     } else {
-      return (((100*proc)/money) * 1000).toString();
+      return (money+(money/proc*100)).toString();
     }
   }
 
