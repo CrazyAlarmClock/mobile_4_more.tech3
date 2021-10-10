@@ -10,6 +10,7 @@ class UserData{
   static int gnomes=0;
   static int leprecons=0;
 static int balance=0;
+static int risk=0;
 
 
   static bool lockAll = true;

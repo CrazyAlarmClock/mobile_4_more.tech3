@@ -2,12 +2,11 @@ import 'package:dragon_trade/models/user.dart';
 import 'package:dragon_trade/screens/chapters/chapter.dart';
 import 'package:dragon_trade/screens/chapters/chapter_0.dart';
 import 'package:dragon_trade/screens/test.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:dragon_trade/theme/theme_settings.dart';
 import 'package:dragon_trade/widget/button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:rive/rive.dart';
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Login extends StatefulWidget {
@@ -17,9 +16,11 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   TextEditingController controller = new TextEditingController();
-
+    TextEditingController controllerNumber = new TextEditingController();
+var maskFormatter = new MaskTextInputFormatter(mask: '+7(###)###-##-##', filter: { "#": RegExp(r'[0-9]') });
   @override
   Widget build(BuildContext context) {
+    print(controllerNumber.text.length);
     return Scaffold(
      // resizeToAvoidBottomInset:false,
       body: SingleChildScrollView(
@@ -71,7 +72,25 @@ class _LoginState extends State<Login> {
                   },
                   decoration: InputDecoration(
                       focusColor: AppColors.primary,
-                      labelText: 'Как звать тебя странник?',
+                      labelText: 'Ваше имя',
+                      labelStyle: TextStyle(
+                          color: Color(0xff333333).withOpacity(0.5),
+                          fontSize: 12)),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                child: TextField(
+                  controller: controllerNumber,
+                  style: AppColors.text,
+                  inputFormatters: [maskFormatter],
+                  onChanged: (value) {
+                    setState(() {});
+                  },
+                  decoration: InputDecoration(
+                    
+                      focusColor: AppColors.primary,
+                      labelText: 'Номер телефона',
                       labelStyle: TextStyle(
                           color: Color(0xff333333).withOpacity(0.5),
                           fontSize: 12)),
@@ -80,7 +99,7 @@ class _LoginState extends State<Login> {
               BottomButton(
                 name: 'Начать',
                 width: 148,
-                handler: controller.text.isNotEmpty
+                handler: controller.text.isNotEmpty&&controllerNumber.text.length==16
                     ? () async {
                         SharedPreferences prefs =
                             await SharedPreferences.getInstance();
