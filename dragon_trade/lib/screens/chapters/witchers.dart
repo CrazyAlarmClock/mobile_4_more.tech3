@@ -108,7 +108,7 @@ int value=0;
         Padding(
           padding: const EdgeInsets.all(16.0),
           child: Text(
-              '$value из ${UserData.gold??1000}',
+              '$value из ${UserData.gold==null?1000.0:UserData.gold<UserData.witchers?(UserData.witchers) :(UserData.gold)}',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.w900,
@@ -139,7 +139,7 @@ int value=0;
               });
             },
           min:0+0.0,
-          max: (UserData.gold??1000)+0.0,
+          max:UserData.gold==null?1000.0:UserData.gold<UserData.witchers?(UserData.witchers+0.0) :(UserData.gold+0.0),
       )),
         )
     
