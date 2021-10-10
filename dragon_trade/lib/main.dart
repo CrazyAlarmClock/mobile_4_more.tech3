@@ -30,12 +30,13 @@ class _MyAppState extends State<MyApp> {
         });
     print(UserData.name.toString());
   }
-
   @override
   Widget build(BuildContext context) {
     return FadeWidget(
       widget: MaterialApp(
-        
+        debugShowCheckedModeBanner: false,
+
+
         navigatorKey: Application.navKey,
         theme: ThemeData(
           primarySwatch: Colors.blue,

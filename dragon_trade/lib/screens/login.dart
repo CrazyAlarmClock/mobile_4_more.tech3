@@ -83,6 +83,7 @@ var maskFormatter = new MaskTextInputFormatter(mask: '+7(###)###-##-##', filter:
                 child: TextField(
                   controller: controllerNumber,
                   style: AppColors.text,
+                  keyboardType: TextInputType.number,
                   inputFormatters: [maskFormatter],
                   onChanged: (value) {
                     setState(() {});
