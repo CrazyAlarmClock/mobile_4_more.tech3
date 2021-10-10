@@ -29,6 +29,17 @@ class ResultScreen extends StatelessWidget {
     return filePath.toString();
   }
 
+  String getSum(int money, double proc) {
+    if (money == 0) {
+      return '0';
+    } else {
+      double actual = (proc / 100) * money;
+      actual = actual * 1000;
+      return (money + actual).toString();
+    }
+  }
+
+
   @override
   Widget build(BuildContext context) {
     print(UserData.balance);
@@ -66,7 +77,10 @@ class ResultScreen extends StatelessWidget {
                               child: SvgPicture.asset('assets/svg/logo.svg'),
                             ),
                           ),
-                          AnimationRive(animation: '4',big: true,),
+                          AnimationRive(
+                            animation: '4',
+                            big: true,
+                          ),
                           Positioned(
                               bottom: 60,
                               child: Container(
@@ -85,7 +99,13 @@ class ResultScreen extends StatelessWidget {
                               style: TextStyle(fontSize: 20),
                               children: <TextSpan>[
                                 TextSpan(
-                                  text: UserData.gold.toString() ?? '1500',
+                                  text:getSum( (UserData.gold +
+                                      UserData.elves +
+                                      UserData.witchers +
+                                      UserData.people +
+                                      UserData.gnomes +
+                                      UserData.leprecons), 30.3),
+
                                   style: TextStyle(
                                       color: Color(0xff333333),
                                       fontSize: 49,
@@ -115,36 +135,34 @@ class ResultScreen extends StatelessWidget {
               desc:
                   'Несмотря на слухи, сделка с дриадами все же состоялась, и год выдался урожайным. Как и всегда эльфы сумели обернуть ситуацию себе на пользу, подтвердив тем самым что акции это рисковый спобов инвестиций хотя и с высокой возможной доходностью.',
               plus: '+32%',
-              money: UserData.elves,
+              money: getSum(UserData.elves, 32.0),
             ),
             HideCard(
               text: 'Фонды магов',
               desc:
                   'Маги не упускают ничего из виду. Как и в этот раз. Вложив в фонды магов вы не упустили свой шанс, хоть и с низкой доходностью, но и риски были минимальны.',
               plus: '+32%',
-              money: UserData.witchers,
+              money: getSum(UserData.witchers, 32.0),
             ),
             HideCard(
               text: 'Металлы гномов',
               desc:
                   'Вложиться в металлы гномов всегда правильное решение, особенно на фоне роста строительства в королевсте людей. Низкая доходность, малые риски. Неплохой вариант для долгосрочных инвестиций.',
               plus: '+4,3%',
-              money: UserData.gnomes,
+              money: getSum(UserData.gnomes, 4.3),
             ),
             HideCard(
-              text: 'Облигации людей',
-              desc:
-                  'Люди все строят и развиваются. Растут и занимают новые земли. Как солнце сменяет луну и луна солнце. Низкая доходность, низкие риски и прозрачность вложений — неплохой вариант для долгосрочных инвестиций.',
-              plus: '+12%',
-              money: UserData.people,
-            ),
+                text: 'Облигации людей',
+                desc:
+                    'Люди все строят и развиваются. Растут и занимают новые земли. Как солнце сменяет луну и луна солнце. Низкая доходность, низкие риски и прозрачность вложений — неплохой вариант для долгосрочных инвестиций.',
+                plus: '+12%',
+                money: getSum(UserData.people, 12.0)),
             HideCard(
-              text: 'Валюта лепреконов',
-              desc:
-                  'Валюта как вода, изменчива и быстра. Хорошая возможная доходность, но и риски довольно высоки. На фоне высокой инфляции в ходе чеканки новых монет для отрядов наемников, в тот год стоимость валюты снизилась довольно сильно.',
-              plus: '-50%',
-              money: UserData.leprecons,
-            ),
+                text: 'Валюта лепреконов',
+                desc:
+                    'Валюта как вода, изменчива и быстра. Хорошая возможная доходность, но и риски довольно высоки. На фоне высокой инфляции в ходе чеканки новых монет для отрядов наемников, в тот год стоимость валюты снизилась довольно сильно.',
+                plus: '-50%',
+                money: getSum(UserData.leprecons, -50.0)),
             SizedBox(
               height: 15,
             ),
@@ -176,7 +194,7 @@ class HideCard extends StatefulWidget {
   final String text;
   final String desc;
   final String plus;
-  final int money;
+  final String money;
 
   const HideCard({Key key, this.text, this.desc, this.plus, this.money})
       : super(key: key);

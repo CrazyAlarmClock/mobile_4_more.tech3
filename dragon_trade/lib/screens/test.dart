@@ -13,6 +13,7 @@ class AnimationRive extends StatefulWidget {
   final String animation;
   final bool big;
 
+
   const AnimationRive({Key key, this.animation, this.big}) : super(key: key);
   @override
   _AnimationRiveState createState() => _AnimationRiveState();
@@ -21,6 +22,14 @@ class AnimationRive extends StatefulWidget {
 class _AnimationRiveState extends State<AnimationRive> {
   Artboard _riveArtboard;
   RiveAnimationController _controller;
+
+  loop() {
+    Future.delayed(const Duration(seconds: 1), () {
+      setState(() {
+        loop();
+      });
+    });
+  }
 
   @override
   void initState() {
@@ -40,6 +49,7 @@ class _AnimationRiveState extends State<AnimationRive> {
 
   @override
   Widget build(BuildContext context) {
+
     return Container(
         width: widget.big ?? false ? 500 : 500,
         height: widget.big ?? false ? 400 : 240,
