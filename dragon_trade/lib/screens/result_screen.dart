@@ -32,20 +32,18 @@ class ResultScreen extends StatelessWidget {
   double getSum(int money, double proc) {
     if (money == 0) {
       return 0;
-    } else if(proc>0){
-      return (money*(1+proc/100));
-    }else{
-       return (money*(-proc/100));
+    } else if (proc > 0) {
+      return (money * (1 + proc / 100));
+    } else {
+      return (money * (-proc / 100));
     }
   }
 
-  String getPercent(int moneyOld,double income){
-double percent=income*100.0/moneyOld;
-if(percent<100) return ' -${(100-percent).toStringAsFixed(1)}%';
-return ' +${(percent-100).toStringAsFixed(1)}%';
-
+  String getPercent(int moneyOld, double income) {
+    double percent = income * 100.0 / moneyOld;
+    if (percent < 100) return ' -${(100 - percent).toStringAsFixed(1)}%';
+    return ' +${(percent - 100).toStringAsFixed(1)}%';
   }
-   
 
   @override
   Widget build(BuildContext context) {
@@ -107,14 +105,37 @@ return ' +${(percent-100).toStringAsFixed(1)}%';
                               style: TextStyle(fontSize: 20),
                               children: <TextSpan>[
                                 TextSpan(
-                                  text:(getSum(UserData.elves, 32.0)+getSum(UserData.witchers, 18.0)+getSum(UserData.gnomes, 4.3)+getSum(UserData.people, 12.0)+getSum(UserData.leprecons, -50.0)+(1000-UserData.witchers-UserData.people-UserData.gnomes-UserData.leprecons-UserData.elves)).toStringAsFixed(0),
+                                  text: (getSum(UserData.elves, 32.0) +
+                                          getSum(UserData.witchers, 18.0) +
+                                          getSum(UserData.gnomes, 4.3) +
+                                          getSum(UserData.people, 12.0) +
+                                          getSum(UserData.leprecons, -50.0) +
+                                          (1000 -
+                                              UserData.witchers -
+                                              UserData.people -
+                                              UserData.gnomes -
+                                              UserData.leprecons -
+                                              UserData.elves))
+                                      .toStringAsFixed(0),
                                   style: TextStyle(
                                       color: Color(0xff333333),
                                       fontSize: 36,
                                       fontWeight: FontWeight.w900),
                                 ),
                                 TextSpan(
-                                  text: getPercent(1000,(getSum(UserData.elves, 32.0)+getSum(UserData.witchers, 32.0)+getSum(UserData.gnomes, 4.3)+getSum(UserData.people, 12.0)+getSum(UserData.leprecons, -50.0)+(1000-UserData.witchers-UserData.people-UserData.gnomes-UserData.leprecons-UserData.elves))),
+                                  text: getPercent(
+                                      1000,
+                                      (getSum(UserData.elves, 32.0) +
+                                          getSum(UserData.witchers, 32.0) +
+                                          getSum(UserData.gnomes, 4.3) +
+                                          getSum(UserData.people, 12.0) +
+                                          getSum(UserData.leprecons, -50.0) +
+                                          (1000 -
+                                              UserData.witchers -
+                                              UserData.people -
+                                              UserData.gnomes -
+                                              UserData.leprecons -
+                                              UserData.elves))),
                                   style: TextStyle(
                                       color: Color(0xff45C051),
                                       fontSize: 36,
@@ -146,7 +167,7 @@ return ' +${(percent-100).toStringAsFixed(1)}%';
             Container(
               padding: EdgeInsets.all(16),
               child: Container(
-                height: 56,
+                  height: 56,
                   decoration: BoxDecoration(
                       color: Color(0xffEBF3FE),
                       borderRadius: BorderRadius.all(Radius.circular(12))),

@@ -19,7 +19,7 @@ class _FadeWidgetState extends State<FadeWidget> {
         child: widget.widget,
       ),
       // Optional paramaters
-      duration: Duration(milliseconds: 1200),
+      duration: Duration(milliseconds: 1000),
       curve: Curves.easeIn,
     );
   }
