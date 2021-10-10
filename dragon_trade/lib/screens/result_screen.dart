@@ -33,12 +33,9 @@ class ResultScreen extends StatelessWidget {
     if (money == 0) {
       return '0';
     } else {
-      double actual = (proc / 100) * money;
-      actual = actual * 1000;
-      return (money + actual).toString();
+      return (((100*proc)/money) * 1000).toString();
     }
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -99,13 +96,14 @@ class ResultScreen extends StatelessWidget {
                               style: TextStyle(fontSize: 20),
                               children: <TextSpan>[
                                 TextSpan(
-                                  text:getSum( (UserData.gold +
-                                      UserData.elves +
-                                      UserData.witchers +
-                                      UserData.people +
-                                      UserData.gnomes +
-                                      UserData.leprecons), 30.3),
-
+                                  text: getSum(
+                                      (UserData.gold +
+                                          UserData.elves +
+                                          UserData.witchers +
+                                          UserData.people +
+                                          UserData.gnomes +
+                                          UserData.leprecons),
+                                      30.3),
                                   style: TextStyle(
                                       color: Color(0xff333333),
                                       fontSize: 49,
