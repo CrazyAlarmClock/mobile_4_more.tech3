@@ -29,13 +29,23 @@ class ResultScreen extends StatelessWidget {
     return filePath.toString();
   }
 
-  String getSum(int money, double proc) {
+  double getSum(int money, double proc) {
     if (money == 0) {
-      return '0';
-    } else {
-      return (money+(money/proc*100)).toString();
+      return 0;
+    } else if(proc>0){
+      return (money*(1+proc/100));
+    }else{
+       return (money*(-proc/100));
     }
   }
+
+  String getPercent(int moneyOld,double income){
+double percent=income*100.0/moneyOld;
+if(percent<100) return ' -${(100-percent).toStringAsFixed(1)}%';
+return ' +${(percent-100).toStringAsFixed(1)}%';
+
+  }
+   
 
   @override
   Widget build(BuildContext context) {
@@ -97,21 +107,14 @@ class ResultScreen extends StatelessWidget {
                               style: TextStyle(fontSize: 20),
                               children: <TextSpan>[
                                 TextSpan(
-                                  text: getSum(
-                                      (UserData.gold +
-                                          UserData.elves +
-                                          UserData.witchers +
-                                          UserData.people +
-                                          UserData.gnomes +
-                                          UserData.leprecons),
-                                      30.3),
+                                  text:(getSum(UserData.elves, 32.0)+getSum(UserData.witchers, 18.0)+getSum(UserData.gnomes, 4.3)+getSum(UserData.people, 12.0)+getSum(UserData.leprecons, -50.0)+(1000-UserData.witchers-UserData.people-UserData.gnomes-UserData.leprecons-UserData.elves)).toStringAsFixed(0),
                                   style: TextStyle(
                                       color: Color(0xff333333),
                                       fontSize: 49,
                                       fontWeight: FontWeight.w900),
                                 ),
                                 TextSpan(
-                                  text: ' +30,3%',
+                                  text: getPercent(1000,(getSum(UserData.elves, 32.0)+getSum(UserData.witchers, 32.0)+getSum(UserData.gnomes, 4.3)+getSum(UserData.people, 12.0)+getSum(UserData.leprecons, -50.0)+(1000-UserData.witchers-UserData.people-UserData.gnomes-UserData.leprecons-UserData.elves))),
                                   style: TextStyle(
                                       color: Color(0xff45C051),
                                       fontSize: 36,
@@ -134,34 +137,34 @@ class ResultScreen extends StatelessWidget {
               desc:
                   'Несмотря на слухи, сделка с дриадами все же состоялась, и год выдался урожайным. Как и всегда эльфы сумели обернуть ситуацию себе на пользу, подтвердив тем самым что акции это рисковый спобов инвестиций хотя и с высокой возможной доходностью.',
               plus: '+32%',
-              money: getSum(UserData.elves, 32.0),
+              money: getSum(UserData.elves, 32.0).toStringAsFixed(0),
             ),
             HideCard(
               text: 'Фонды магов',
               desc:
                   'Маги не упускают ничего из виду. Как и в этот раз. Вложив в фонды магов вы не упустили свой шанс, хоть и с низкой доходностью, но и риски были минимальны.',
-              plus: '+32%',
-              money: getSum(UserData.witchers, 32.0),
+              plus: '+18%',
+              money: getSum(UserData.witchers, 18.0).toStringAsFixed(0),
             ),
             HideCard(
               text: 'Металлы гномов',
               desc:
                   'Вложиться в металлы гномов всегда правильное решение, особенно на фоне роста строительства в королевсте людей. Низкая доходность, малые риски. Неплохой вариант для долгосрочных инвестиций.',
               plus: '+4,3%',
-              money: getSum(UserData.gnomes, 4.3),
+              money: getSum(UserData.gnomes, 4.3).toStringAsFixed(0),
             ),
             HideCard(
                 text: 'Облигации людей',
                 desc:
                     'Люди все строят и развиваются. Растут и занимают новые земли. Как солнце сменяет луну и луна солнце. Низкая доходность, низкие риски и прозрачность вложений — неплохой вариант для долгосрочных инвестиций.',
                 plus: '+12%',
-                money: getSum(UserData.people, 12.0)),
+                money: getSum(UserData.people, 12.0).toStringAsFixed(0)),
             HideCard(
                 text: 'Валюта лепреконов',
                 desc:
                     'Валюта как вода, изменчива и быстра. Хорошая возможная доходность, но и риски довольно высоки. На фоне высокой инфляции в ходе чеканки новых монет для отрядов наемников, в тот год стоимость валюты снизилась довольно сильно.',
                 plus: '-50%',
-                money: getSum(UserData.leprecons, -50.0)),
+                money: getSum(UserData.leprecons, -50.0).toStringAsFixed(0)),
             SizedBox(
               height: 15,
             ),
